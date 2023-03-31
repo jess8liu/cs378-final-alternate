@@ -30,7 +30,7 @@ export default function FavoriteArtists() {
       text: name
     })
       .then(() => {
-        alert("saved changes to Favorite Artist list");
+        alert("saved changes to Notes");
       })
       .catch((error) => {
         alert(error);
@@ -69,8 +69,7 @@ export default function FavoriteArtists() {
       <div className="title_header">
         <div className="title_logo">
           {/* Add logo image here */}
-          <img src="https://static.vecteezy.com/system/resources/previews/020/649/398/original/scroll-paper-icon-parchment-illustration-sign-chronicle-symbol-or-logo-vector.jpg" width="10%">
-          </img>
+          <img src={require("../images/bitmap.png")} alt="Image of Parchment's logo."/>
         </div>
         <div className="title_company">
           <h1>
@@ -80,14 +79,14 @@ export default function FavoriteArtists() {
       </div>
 
       {/* Subheader with buttons for notes homepage */}
-      <div className="subheader_bttns">
-        <button className="add_note">
+      <div className="subheader_btns">
+        <button className="note_editor_btn">
           Add Note
         </button>
-        <button className="remove_note">
+        <button className="note_editor_btn">
           Remove Note
         </button>
-        <button className="edit_note">
+        <button className="note_editor_btn">
           Edit Note
         </button>
       </div>

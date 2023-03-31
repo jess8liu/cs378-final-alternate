@@ -35,11 +35,17 @@ input {
 }
 
 .title_header {
-  background-color: #d5b213;
+  background-color: #efebe6;
   display: flex;
   margin: 1%;
   padding: 1%;
   font-family: Quicksand;
+  text-align: left;
+}
+
+.subheader_btns {
+  margin: 1%;
+  padding: 1%;
 }
 
 .error {
@@ -54,6 +60,11 @@ input {
 
 .btn {
   margin: 0px 5px;
+}
+
+.note_editor_btn {
+  margin: 0 .5% 0 .5%;
+  padding: .5%;
 }
 
 .save {
