@@ -61,15 +61,48 @@ export default function FavoriteArtists() {
   // DISPLAYED ON WEBSITE
   return (
     <>
+      <div>
+        {/* Menu for buttons */}
+      </div>
+      
+      {/* Header on top of the page */}
+      <div className="title_header">
+        <div className="title_logo">
+          {/* Add logo image here */}
+          <img src="https://static.vecteezy.com/system/resources/previews/020/649/398/original/scroll-paper-icon-parchment-illustration-sign-chronicle-symbol-or-logo-vector.jpg" width="10%">
+          </img>
+        </div>
+        <div className="title_company">
+          <h1>
+            Parchment
+          </h1>
+        </div>
+      </div>
+
+      {/* Subheader with buttons for notes homepage */}
+      <div className="subheader_bttns">
+        <button className="add_note">
+          Add Note
+        </button>
+        <button className="remove_note">
+          Remove Note
+        </button>
+        <button className="edit_note">
+          Edit Note
+        </button>
+      </div>
+
       {/* List of Artists */}
-      <div className="artist_list box">
-        <h3>Favorite Artist:</h3>
-        <li className="music_artists">{artist}</li>
+      <div className="note_list box">
+        <h3>All Notes</h3>
+        <li className="notes">{artist}</li>
       </div>
 
       {/* Search Bar */}
       <div className="box">
-        <p> Set a new favorite artist: </p>
+        <p>
+          Add a new note
+        </p>
         <form>
           <input
             type="text"

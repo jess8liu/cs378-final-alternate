@@ -4,7 +4,7 @@
   font-family: Quicksand;
 }
 
-.artist_list {
+.note_list {
   padding: 20px;
 }
 
@@ -16,7 +16,7 @@
   float: center;
 }
 
-.music_artists {
+.notes {
   display: inline-block;
   padding: 3px 15px;
 
@@ -32,6 +32,14 @@ input {
   margin-bottom: 10px;
   height: 20px;
   width: 200px;
+}
+
+.title_header {
+  background-color: #d5b213;
+  display: flex;
+  margin: 1%;
+  padding: 1%;
+  font-family: Quicksand;
 }
 
 .error {
