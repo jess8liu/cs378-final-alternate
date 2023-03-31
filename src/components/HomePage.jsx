@@ -3,8 +3,9 @@ import React, { useState, useEffect } from "react";
 import { set, ref, onValue } from "firebase/database";
 import { auth, database } from "./config.jsx";
 import { uid } from "uid";
+import Note from "./Note"
 
-export default function FavoriteArtists() {
+export default function HomePage(props) {
   // ----------------------------------------------------------------------
   // VARIABLES
 
@@ -64,7 +65,11 @@ export default function FavoriteArtists() {
       <div>
         {/* Menu for buttons */}
       </div>
-      
+      <div className="box">
+        <h3>{props.curr_username}</h3>
+      </div>
+
+
       {/* Header on top of the page */}
       <div className="title_header">
         <div className="title_logo">
@@ -91,10 +96,19 @@ export default function FavoriteArtists() {
         </button>
       </div>
 
-      {/* List of Artists */}
+      {/* List of Notes */}
       <div className="note_list box">
         <h3>All Notes</h3>
-        <li className="notes">{artist}</li>
+        <br/>
+        <div className="singular_note">
+          <Note title_dis="Title"/>        
+        </div>
+        <div className="singular_note">
+          <Note title_dis="Title"/>        
+        </div>
+        <div className="singular_note">
+          <Note title_dis="Title"/>        
+        </div>
       </div>
 
       {/* Search Bar */}

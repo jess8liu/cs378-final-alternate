@@ -44,13 +44,17 @@ export default function LoginPage() {
   // -------------------------------------------------------------------------------
   // FUNCTION: LOG OUT
 
-  function logout() {
+  function logout(e) {
+    e.preventDefault();
     signOut(auth)
       .then(() => {
         setIsLoggedIn(false);
       })
       .catch((error) => alert("Couldn't Log Out."));
   }
+
+
+
 
   return (
     <>
@@ -121,20 +125,15 @@ export default function LoginPage() {
 
       {isLoggedIn ? (
         <>
-          <div className="box">
-            <h3>{auth.currentUser.email}</h3>
-          </div>
+          
           <div>
-            <HomePage />
+            <HomePage curr_username = {auth.currentUser.email}/>
           </div>
 
           {/* Logout Button */}
           <button
             className="btn save"
-            onClick={(e) => {
-              e.preventDefault();
-              logout();
-            }}
+            onClick={(e) => {logout(e);}}
           >
             Log Out
           </button>

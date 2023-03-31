@@ -81,3 +81,49 @@ input {
   float: right;
 }
 
+.singular_note {
+  display: inline-block;
+  width: 300px;
+  height: 300px;
+  margin: 5px;
+}
+
+/* ------------------------------------------------------------- */
+/* COMPONENT: NOTE */
+
+.title_section {
+  display: flex;
+  background-color: #eeeaea;
+}
+
+.title_section > div {
+  flex: 1;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  font-size: 150%;
+  padding: 10px;
+  width: 70%;
+}
+
+.pin_btn {
+  width: 15%;
+}
+
+.body_section {
+  background-color: #d9d9d9;
+}
+
+.textbox {
+  resize: none;
+  border: none;
+  padding: 15px;
+  width: 90%;
+}
+
+.trash_btn {
+  float: right;
+}
+
