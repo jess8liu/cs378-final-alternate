@@ -53,9 +53,6 @@ export default function LoginPage() {
       .catch((error) => alert("Couldn't Log Out."));
   }
 
-
-
-
   return (
     <>
       {!isLoggedIn ? (
@@ -125,18 +122,21 @@ export default function LoginPage() {
 
       {isLoggedIn ? (
         <>
-          
-          <div>
-            <HomePage curr_username = {auth.currentUser.email}/>
-          </div>
+          <div className="background">
+            <div>
+              <HomePage curr_username={auth.currentUser.email} />
+            </div>
 
-          {/* Logout Button */}
-          <button
-            className="btn save"
-            onClick={(e) => {logout(e);}}
-          >
-            Log Out
-          </button>
+            {/* Logout Button */}
+            <div className="sidebar">
+              <button
+                className="btn logout"
+                onClick={(e) => { logout(e); }}
+              >
+                Log Out
+              </button>
+            </div>
+          </div>
         </>
       ) : (
         <></>

@@ -4,16 +4,22 @@
   font-family: Quicksand;
 }
 
-.note_list {
-  padding: 20px;
-}
+/* div {
+  border: .5px dotted black;
+} */
 
 .box {
   border: lightgray 1px solid;
-
-  margin: 10px;
-  padding: 10px;
+  margin: 5px;
+  padding: 5px;
   float: center;
+}
+
+.note_list {
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  margin: 2%;
 }
 
 .notes {
@@ -34,18 +40,46 @@ input {
   width: 200px;
 }
 
+.side {
+  text-align: center;
+}
+
+.sidebar {
+  display: inline;
+  width: 20%;
+  float: left;
+  margin: 0;
+}
+
+.title_logo {
+  display: inline-block;
+  align-items: center;
+}
+
+.notes_home {
+  background-color: #dad7cd;
+  display: inline;
+  width: 80%;
+  float: right;
+}
+
 .title_header {
-  background-color: #efebe6;
+  background-color: #46322c;
   display: flex;
-  margin: 1%;
-  padding: 1%;
+  padding: 10px;
   font-family: Quicksand;
   text-align: left;
+  color: white;
 }
 
 .subheader_btns {
-  margin: 1%;
+  margin: 5px;
   padding: 1%;
+}
+
+.user_btns_box {
+  margin: 10px;
+  padding: 10px;
 }
 
 .error {
@@ -75,10 +109,10 @@ input {
 }
 
 .logout {
-  margin-right: 0px;
+  margin: 4%;
   padding: 5px 10px;
   font-weight: bold;
-  float: right;
+  float: left;
 }
 
 .singular_note {
@@ -93,7 +127,7 @@ input {
 
 .title_section {
   display: flex;
-  background-color: #eeeaea;
+  background-color: #d9d9d9;
 }
 
 .title_section > div {
@@ -113,7 +147,7 @@ input {
 }
 
 .body_section {
-  background-color: #d9d9d9;
+  background-color: #eeeaea;
 }
 
 .textbox {
