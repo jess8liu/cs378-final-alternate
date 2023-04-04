@@ -40,11 +40,11 @@ export default function Notetaker() {
     <>
       {/* Container DIV for all of the notes */}
       <div>
-        {
+        {/* {
           listOfNotes.map(note => (
-            <Note title_dis={note.title_dis} content_dis={note.content_dis}/>
+            // <Note title_dis={note.title_dis} content_dis={note.content_dis}/>
           ))
-        }
+        } */}
       </div>
     </>
   )

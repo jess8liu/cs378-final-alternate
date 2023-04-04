@@ -5,6 +5,7 @@ import { auth, database } from "./config.jsx";
 import { uid } from "uid";
 import Note from "./Note"
 import Notetaker from "./Notetaker";
+import SettingList from "./SettingList";
 
 export default function HomePage(props) {
   // ----------------------------------------------------------------------
@@ -17,7 +18,7 @@ export default function HomePage(props) {
 
   // ----------------------------------------------------------------------
   // FUNCTIONS
- 
+
   const [title, setTitle] = useState('');
   const [note, setNote] = useState('');
   const [listOfNotes, setListOfNotes] = useState([]);
@@ -37,6 +38,7 @@ export default function HomePage(props) {
       }
     })
   }, []);
+
 
 
   const writeToDatabase = () => {
@@ -91,6 +93,29 @@ export default function HomePage(props) {
     });
   }, []);
   */
+  
+  // ----------------------------------------------------------------------
+  // NOTE FUNCTIONS
+  const [pin, setPin] = useState(false);
+  // const [title, setTitle] = useState(props.title_dis);
+  const [content, setContent] = useState(props.content_dis)
+  const [setting, setSetting] = useState(false);
+  const togglePin = (e) => {
+    e.preventDefault();
+    setPin(!pin);
+    console.log("Pin: " + pin);
+  };
+
+  const toggleSetting = (e) => {
+    e.preventDefault();
+    setSetting(!setting);
+  };
+
+  const handleDelete = () => {
+    alert("Note will be deleted");
+    // implement once database is running
+
+  };
 
   // ----------------------------------------------------------------------
   // DISPLAYED ON WEBSITE
@@ -129,15 +154,16 @@ export default function HomePage(props) {
 
         {/* Subheader with buttons for notes homepage */}
         <div className="subheader_btns">
-          <button className="note_editor_btn">
+          <input type="Text" placeholder="text" value={note} onChange={(e) =>setNote(e.target.value)}></input>
+          <button className="note_editor_btn" onClick={writeToDatabase}>
             Add Note
           </button>
-          <button className="note_editor_btn">
+          {/* <button className="note_editor_btn" onClick={remove}>
             Remove Note
           </button>
-          <button className="note_editor_btn">
+          <button className="note_editor_btn" onClick={edit}>
             Edit Note
-          </button>
+          </button> */}
         </div>
 
         {/* List of Notes */}
@@ -148,9 +174,47 @@ export default function HomePage(props) {
 
           <br />
 
-          <Notetaker/>
+          <div>
+            {
+              listOfNotes.map(note => (
+                <>
+                  <div className="title_section">
+                    <div className="title">{note.title}</div>
+                    <button className="pin_btn" onClick={togglePin}>
+                      Pin
+                    </button>
+                  </div>
+
+                  <div className="body_section">
+                    {/* Input Section (for notes) */}
+                    <textarea className="body_section textbox">
+                      {/* {<Notetake/>} */}
+                      {note.content}
+                    </textarea>
+                  </div>
+
+                  <div className="body_section">
+                    <button className="setting_btn" onClick={toggleSetting}>
+                      Settings
+                    </button>
+                    <button className="save_btn" onClick={toggleSetting}>
+                      Save
+                    </button>
+                    <button className="trash_btn" onClick={handleDelete}>
+                      Trash
+                    </button>
+                  </div>
+
+                  {/* Settings List */}
+                  {setting && <SettingList />}
+                </>
+                // <Note title_dis={note.title_dis} content_dis={note.content_dis} />
+              ))
+            }
+          </div>
+
           <div className="singular_note">
-            <Note title_dis="Title" text_dis=""hello/>
+            <Note title_dis="Title" text_dis="" hello />
           </div>
           <div className="singular_note">
             <Note title_dis="Title" />
@@ -161,7 +225,7 @@ export default function HomePage(props) {
         </div>
 
         {/* Search Bar */}
-        <div className="box">
+        {/* <div className="box">
           <p>
             Add a new note
           </p>
