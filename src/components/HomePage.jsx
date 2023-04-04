@@ -17,7 +17,39 @@ export default function HomePage(props) {
 
   // ----------------------------------------------------------------------
   // FUNCTIONS
+ 
+  const [title, setTitle] = useState('');
+  const [note, setNote] = useState('');
+  const [listOfNotes, setListOfNotes] = useState([]);
 
+  useEffect(() => {
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        onValue(ref(database, `/${auth.currentUser.uid}`), snapshot => {
+          setListOfNotes([]);
+          const data = snapshot.val();
+          if (data != null) {
+            Object.values(data).map(note => {
+              setListOfNotes((oldArray) => [note, ...oldArray]);
+            })
+          }
+        })
+      }
+    })
+  }, []);
+
+
+  const writeToDatabase = () => {
+    const cur_uid = uid();
+    set(ref(database, `/${auth.currentUser.uid}/${cur_uid}`), {
+      title: title,
+      content: note,
+      cur_uid: cur_uid,
+    })
+    setNote("");
+  };
+
+  /*
   function saveArtist() {
     // 0. Error Message
     if (name === "") {
@@ -58,6 +90,7 @@ export default function HomePage(props) {
       }
     });
   }, []);
+  */
 
   // ----------------------------------------------------------------------
   // DISPLAYED ON WEBSITE
