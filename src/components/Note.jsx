@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-
 import SettingList from "./SettingList";
+import Notetake from "./Notetaker";
 
 function Note(props) {
-  
   const togglePin = (e) => {
     e.preventDefault();
     setPin(!pin);
@@ -18,10 +17,12 @@ function Note(props) {
   const handleDelete = () => {
     alert("Note will be deleted");
     // implement once database is running
+    
   };
 
   const [pin, setPin] = useState(false);
   const [title, setTitle] = useState(props.title_dis);
+  const [content, setContent] = useState(props.content_dis)
   const [setting, setSetting] = useState(false);
 
   return (
@@ -34,12 +35,19 @@ function Note(props) {
       </div>
 
       <div className="body_section">
-        <textarea className="body_section textbox">TEXTBOX</textarea>
+        {/* Input Section (for notes) */}
+        <textarea className="body_section textbox">
+          {/* {<Notetake/>} */}
+          {props.text_dis}
+        </textarea>
       </div>
 
       <div className="body_section">
         <button className="setting_btn" onClick={toggleSetting}>
           Settings
+        </button>
+        <button className="save_btn" onClick={toggleSetting}>
+          Save
         </button>
         <button className="trash_btn" onClick={handleDelete}>
           Trash

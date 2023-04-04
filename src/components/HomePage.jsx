@@ -4,6 +4,7 @@ import { set, ref, onValue } from "firebase/database";
 import { auth, database } from "./config.jsx";
 import { uid } from "uid";
 import Note from "./Note"
+import Notetaker from "./Notetaker";
 
 export default function HomePage(props) {
   // ----------------------------------------------------------------------
@@ -113,8 +114,10 @@ export default function HomePage(props) {
           </div>
 
           <br />
+
+          <Notetaker/>
           <div className="singular_note">
-            <Note title_dis="Title" />
+            <Note title_dis="Title" text_dis=""hello/>
           </div>
           <div className="singular_note">
             <Note title_dis="Title" />
