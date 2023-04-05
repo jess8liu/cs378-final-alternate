@@ -25,12 +25,12 @@ export default function HomePage(props) {
   useEffect(() => {
     auth.onAuthStateChanged(user => {
       if (user) {
-        onValue(ref(database, `/${auth.currentUser.uid}`), snapshot => {
+        onValue(ref(database, `/${auth.currentUser.uid}`), (snapshot) => {
           setListOfNotes([]);
           const data = snapshot.val();
-          if (data != null) {
-            Object.values(data).map(note => {
-              setListOfNotes((oldArray) => [note, ...oldArray]);
+          if (data !== null) {
+            Object.values(data).map((note) => {
+              setListOfNotes((oldArray) => [...oldArray, note]);
             })
           }
         })
@@ -186,12 +186,11 @@ export default function HomePage(props) {
 
                   <div className="body_section">
                     {/* Input Section (for notes) */}
-                    <textarea className="body_section textbox">
+                    <textarea className="body_section textbox" value={note.content}>
                       {/* {<Notetake/>} */}
-                      {note.content}
                     </textarea>
-                    <div>
-                      uid: {note.cur_uid}
+                    <div> Inside of div:
+                    {note.content}
                     </div>
                   </div>
 
