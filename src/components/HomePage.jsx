@@ -12,7 +12,6 @@ export default function HomePage(props) {
   // ----------------------------------------------------------------------
   // VARIABLES
   const [title, setTitle] = useState('');
-  const [note, setNote] = useState('');
   const [listOfNotes, setListOfNotes] = useState([]);
   const [pin, setPin] = useState(false);
   const [content, setContent] = useState(props.content_dis)
@@ -43,11 +42,10 @@ export default function HomePage(props) {
     const cur_uid = uid();
     set(ref(database, `/${auth.currentUser.uid}/${cur_uid}`), {
       title: title,
-      content: note,
+      content: "",
       is_pinned: pin,
       cur_uid: cur_uid,
     })
-    setNote("");
   };
 
   // ----------------------------------------------------------------------
@@ -118,7 +116,7 @@ export default function HomePage(props) {
 
         {/* Subheader with buttons for notes homepage */}
         <div className="subheader_btns">
-          <input type="Text" placeholder="text" value={note} onChange={(e) => setNote(e.target.value)}></input>
+          {/* <input type="Text" placeholder="text" value={note} onChange={(e) => setNote(e.target.value)}></input> */}
           <button className="note_editor_btn" onClick={writeToDatabase}>
             Add Note
           </button>
