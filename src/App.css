@@ -161,3 +161,16 @@ input {
   float: right;
 }
 
+
+/* ------------------------------------------------------------- */
+/* COMPONENT: SETTING LIST */
+
+.dropdown {
+  display: block;
+}
+.dropdownItem {
+  display: flex;
+  flex-grow: 1;
+  border: 0.5px solid grey;
+  height: 25px;
+}

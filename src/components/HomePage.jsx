@@ -4,24 +4,24 @@ import { set, ref, onValue, remove } from "firebase/database";
 import { auth, database } from "./config.jsx";
 import { uid } from "uid";
 import Note from "./Note"
-import Notetaker from "./Notetaker";
+// import Notetaker from "./Notetaker";
 import SettingList from "./SettingList";
+import EditPage from "./EditPage";
 
 export default function HomePage(props) {
   // ----------------------------------------------------------------------
   // VARIABLES
-
-  const [artist, setArtist] = useState("");
-  const [name, setName] = useState("");
-  const [errorMsg, setErrorMsg] = useState("");
-
-  // ----------------------------------------------------------------------
-  // FUNCTIONS
-
   const [title, setTitle] = useState('');
   const [note, setNote] = useState('');
   const [listOfNotes, setListOfNotes] = useState([]);
-
+  const [pin, setPin] = useState(false);
+  const [content, setContent] = useState(props.content_dis)
+  const [setting, setSetting] = useState(false);
+  const [isEditing, setEditingState] = useState(false);
+  const [edit_info, setEdit_Info] = useState('');
+  // ----------------------------------------------------------------------
+  // FUNCTIONS
+  // Shows the list of notes
   useEffect(() => {
     auth.onAuthStateChanged(user => {
       if (user) {
@@ -38,83 +38,49 @@ export default function HomePage(props) {
     })
   }, []);
 
-
-
+  // Writes to database
   const writeToDatabase = () => {
     const cur_uid = uid();
     set(ref(database, `/${auth.currentUser.uid}/${cur_uid}`), {
       title: title,
       content: note,
+      is_pinned: pin,
       cur_uid: cur_uid,
     })
     setNote("");
   };
 
-  /*
-  function saveArtist() {
-    // 0. Error Message
-    if (name === "") {
-      setErrorMsg("Missing Name.");
-      return;
-    } else {
-      setErrorMsg("");
-    }
-
-    set(ref(database, `/${auth.currentUser.uid}/${user}`), {
-      user: user,
-      text: name
-    })
-      .then(() => {
-        alert("saved changes to Notes");
-      })
-      .catch((error) => {
-        alert(error);
-      });
-
-    // Setting favorite artist
-    setArtist(name);
-    setName("");
-  }
-
-  // Load list on screen & load from database
-  useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        onValue(ref(database, `/${auth.currentUser.uid}`), (snapshot) => {
-          const data = snapshot.val();
-          setArtist("");
-          if (data != null) {
-            let lastobj = Object.values(data).pop();
-            setArtist(lastobj.text);
-          }
-        });
-      }
-    });
-  }, []);
-  */
-  
   // ----------------------------------------------------------------------
   // NOTE FUNCTIONS
-  const [pin, setPin] = useState(false);
-  // const [title, setTitle] = useState(props.title_dis);
-  const [content, setContent] = useState(props.content_dis)
-  const [setting, setSetting] = useState(false);
-  const togglePin = (e) => {
-    e.preventDefault();
-    setPin(!pin);
-    console.log("Pin: " + pin);
+  // Pins notes to the top of note list
+  const togglePin = (is_pinned) => {
+    is_pinned.preventDefault();
+    setPin(!is_pinned);
+    console.log("Pin: " + is_pinned);
   };
 
+  // Displays settings of notes
   const toggleSetting = (e) => {
     e.preventDefault();
     setSetting(!setting);
   };
 
+  // Deletes the note; probably add an alert before completely deleting note
   const handleDelete = (uid) => {
-  //  alert("Note will be deleted");
     // implement once database is running
     remove(ref(database, `/${auth.currentUser.uid}/${uid}`));
   };
+
+  const handleUpdate = (note) => {
+    setEdit_Info(note);
+    setEditingState(true);
+    // Pass the uid and information to the editing page
+  }
+
+  // Return from the editing page
+  const handleExitEdit = (e) => {
+    setEditingState(false);
+  }
 
   // ----------------------------------------------------------------------
   // DISPLAYED ON WEBSITE
@@ -142,7 +108,6 @@ export default function HomePage(props) {
         </div>
       </div>
 
-
       <div className="notes_home">
         {/* Header on top of the page */}
         <div className="title_header">
@@ -153,16 +118,10 @@ export default function HomePage(props) {
 
         {/* Subheader with buttons for notes homepage */}
         <div className="subheader_btns">
-          <input type="Text" placeholder="text" value={note} onChange={(e) =>setNote(e.target.value)}></input>
+          <input type="Text" placeholder="text" value={note} onChange={(e) => setNote(e.target.value)}></input>
           <button className="note_editor_btn" onClick={writeToDatabase}>
             Add Note
           </button>
-          {/* <button className="note_editor_btn" onClick={remove}>
-            Remove Note
-          </button>
-          <button className="note_editor_btn" onClick={edit}>
-            Edit Note
-          </button> */}
         </div>
 
         {/* List of Notes */}
@@ -174,55 +133,62 @@ export default function HomePage(props) {
           <br />
 
           <div>
-            {
-              listOfNotes.map(note => (
-                <>
-                  <div className="title_section">
-                    <div className="title">{note.title}</div>
-                    <button className="pin_btn" onClick={togglePin}>
-                      Pin
-                    </button>
-                  </div>
-
-                  <div className="body_section">
-                    {/* Input Section (for notes) */}
-                    <textarea className="body_section textbox" value={note.content}>
-                      {/* {<Notetake/>} */}
-                    </textarea>
-                    <div> Inside of div:
-                    {note.content}
+            {/* Show the notes if person is not currently editing the notes */}
+            {!isEditing ? (
+              <>
+                <div className="singular_note">
+                  <Note title_dis="Title" text_dis="" hello />
+                </div>
+                <div className="singular_note">
+                  <Note title_dis="Title" />
+                </div>
+                <div className="singular_note">
+                  <Note title_dis="Title" />
+                </div>
+                {listOfNotes.map(note => (
+                  <>
+                    <div className="title_section">
+                      <div className="title">{note.title}</div>
+                      <button className="pin_btn" onClick={() => togglePin(note.is_pinned)}>
+                        Pin
+                      </button>
                     </div>
-                  </div>
 
-                  <div className="body_section">
-                    <button className="setting_btn" onClick={toggleSetting}>
-                      Settings
-                    </button>
-                    <button className="save_btn" onClick={toggleSetting}>
-                      Save
-                    </button>
-                    <button className="trash_btn" onClick={() => handleDelete(note.cur_uid)}>
-                      Trash
-                    </button>
-                  </div>
+                    <div className="body_section">
+                      {/* Input Section (for notes) */}
+                      <textarea className="body_section textbox" value={note.content}>
+                      </textarea>
+                    </div>
 
-                  {/* Settings List */}
-                  {setting && <SettingList />}
+                    <div className="body_section">
+                      <button className="setting_btn" onClick={toggleSetting}>
+                        Settings
+                      </button>
+                      <button className="save_btn" onClick={() => handleUpdate(note)}>
+                        Edit
+                      </button>
+                      <button className="trash_btn" onClick={() => handleDelete(note.cur_uid)}>
+                        Trash
+                      </button>
+                    </div>
+
+                    {/* Settings List */}
+                    {setting && <SettingList />}
+                  </>
+                ))}
+              </>
+            ) : (
+                <>
+                  {/* Put the editing page here if edit is in order */}
+                  <button onClick={handleExitEdit}>
+                    Exit
+                  </button>
+                  <EditPage note_info={edit_info} />
                 </>
-                // <Note title_dis={note.title_dis} content_dis={note.content_dis} />
-              ))
-            }
+            )}
           </div>
 
-          <div className="singular_note">
-            <Note title_dis="Title" text_dis="" hello />
-          </div>
-          <div className="singular_note">
-            <Note title_dis="Title" />
-          </div>
-          <div className="singular_note">
-            <Note title_dis="Title" />
-          </div>
+          
         </div>
 
         {/* Search Bar */}
