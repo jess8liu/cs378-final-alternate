@@ -37,6 +37,8 @@ export default function LoginPage() {
     signInWithEmailAndPassword(auth, l_email, l_password)
       .then(() => {
         setIsLoggedIn(true);
+        setL_Email('');
+        setL_Password('');
       })
       .catch((error) => alert("Couldn't Sign in."));
   }
