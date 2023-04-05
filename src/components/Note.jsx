@@ -46,9 +46,6 @@ function Note(props) {
         <button className="setting_btn" onClick={toggleSetting}>
           Settings
         </button>
-        <button className="save_btn" onClick={toggleSetting}>
-          Save
-        </button>
         <button className="trash_btn" onClick={handleDelete}>
           Trash
         </button>

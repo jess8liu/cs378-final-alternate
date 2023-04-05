@@ -42,6 +42,7 @@ input {
 
 .side {
   text-align: center;
+  margin: 0;
 }
 
 .sidebar {
@@ -52,6 +53,7 @@ input {
 }
 
 .title_logo {
+  width: 100%;
   display: inline-block;
   align-items: center;
 }
@@ -61,6 +63,11 @@ input {
   display: inline;
   width: 80%;
   float: right;
+}
+
+.note_container {
+  display: inline;
+  min-height: 2vh;
 }
 
 .title_header {
@@ -73,6 +80,9 @@ input {
 }
 
 .subheader_btns {
+  display: block;
+  width: 100%;
+  border: none;
   margin: 5px;
   padding: 1%;
 }
@@ -130,7 +140,7 @@ input {
   background-color: #d9d9d9;
 }
 
-.title_section > div {
+.title_section>div {
   flex: 1;
 }
 
@@ -168,6 +178,7 @@ input {
 .dropdown {
   display: block;
 }
+
 .dropdownItem {
   display: flex;
   flex-grow: 1;

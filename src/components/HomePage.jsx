@@ -93,6 +93,7 @@ export default function HomePage(props) {
           </div>
 
           <div>
+            {/* Username */}
             <h3>{props.curr_username}</h3>
           </div>
         </div>
@@ -125,7 +126,10 @@ export default function HomePage(props) {
         {/* List of Notes */}
         <div className="note_list box">
           <div className="box">
-            <h3>All Notes</h3>
+            <div className="note_container">
+              <h3>All Notes</h3>
+            </div>
+
           </div>
 
           <br />
@@ -134,7 +138,7 @@ export default function HomePage(props) {
             {/* Show the notes if person is not currently editing the notes */}
             {!isEditing ? (
               <>
-                <div className="singular_note">
+                {/* <div className="singular_note">
                   <Note title_dis="Title" text_dis="" hello />
                 </div>
                 <div className="singular_note">
@@ -142,51 +146,51 @@ export default function HomePage(props) {
                 </div>
                 <div className="singular_note">
                   <Note title_dis="Title" />
-                </div>
+                </div> */}
                 {listOfNotes.map(note => (
                   <>
-                    <div className="title_section">
-                      <div className="title">{note.title}</div>
-                      <button className="pin_btn" onClick={() => togglePin(note.is_pinned)}>
-                        Pin
-                      </button>
+                    <div className="singular_note">
+                      <div className="title_section">
+                        <div className="title">{note.title}</div>
+                        <button className="pin_btn" onClick={() => togglePin(note.is_pinned)}>
+                          Pin
+                        </button>
+                      </div>
+
+                      <div className="body_section">
+                        {/* Input Section (for notes) */}
+                        <textarea className="body_section textbox" value={note.content}>
+                        </textarea>
+                      </div>
+
+                      <div className="body_section">
+                        <button className="setting_btn" onClick={toggleSetting}>
+                          Settings
+                        </button>
+                        <button className="trash_btn" onClick={() => handleDelete(note.cur_uid)}>
+                          Trash
+                        </button>
+                      </div>
+
+                      {/* Settings List */}
+                      {setting && <SettingList />}
                     </div>
 
-                    <div className="body_section">
-                      {/* Input Section (for notes) */}
-                      <textarea className="body_section textbox" value={note.content}>
-                      </textarea>
-                    </div>
-
-                    <div className="body_section">
-                      <button className="setting_btn" onClick={toggleSetting}>
-                        Settings
-                      </button>
-                      <button className="save_btn" onClick={() => handleUpdate(note)}>
-                        Edit
-                      </button>
-                      <button className="trash_btn" onClick={() => handleDelete(note.cur_uid)}>
-                        Trash
-                      </button>
-                    </div>
-
-                    {/* Settings List */}
-                    {setting && <SettingList />}
                   </>
                 ))}
               </>
             ) : (
-                <>
-                  {/* Put the editing page here if edit is in order */}
-                  <button onClick={handleExitEdit}>
-                    Exit
-                  </button>
-                  <EditPage note_info={edit_info} />
-                </>
+              <>
+                {/* Put the editing page here if edit is in order */}
+                <button onClick={handleExitEdit}>
+                  Exit
+                </button>
+                <EditPage note_info={edit_info} />
+              </>
             )}
           </div>
 
-          
+
         </div>
 
         {/* Search Bar */}
