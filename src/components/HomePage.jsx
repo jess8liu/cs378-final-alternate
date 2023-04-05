@@ -1,6 +1,6 @@
 import "../App.css";
 import React, { useState, useEffect } from "react";
-import { set, ref, onValue } from "firebase/database";
+import { set, ref, onValue, remove } from "firebase/database";
 import { auth, database } from "./config.jsx";
 import { uid } from "uid";
 import Note from "./Note"
@@ -11,7 +11,6 @@ export default function HomePage(props) {
   // ----------------------------------------------------------------------
   // VARIABLES
 
-  const user = uid();
   const [artist, setArtist] = useState("");
   const [name, setName] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
@@ -111,10 +110,10 @@ export default function HomePage(props) {
     setSetting(!setting);
   };
 
-  const handleDelete = () => {
-    alert("Note will be deleted");
+  const handleDelete = (uid) => {
+  //  alert("Note will be deleted");
     // implement once database is running
-
+    remove(ref(database, `/${auth.currentUser.uid}/${uid}`));
   };
 
   // ----------------------------------------------------------------------
@@ -191,6 +190,9 @@ export default function HomePage(props) {
                       {/* {<Notetake/>} */}
                       {note.content}
                     </textarea>
+                    <div>
+                      uid: {note.cur_uid}
+                    </div>
                   </div>
 
                   <div className="body_section">
@@ -200,7 +202,7 @@ export default function HomePage(props) {
                     <button className="save_btn" onClick={toggleSetting}>
                       Save
                     </button>
-                    <button className="trash_btn" onClick={handleDelete}>
+                    <button className="trash_btn" onClick={() => handleDelete(note.cur_uid)}>
                       Trash
                     </button>
                   </div>
