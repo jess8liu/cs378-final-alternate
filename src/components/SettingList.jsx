@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 function SettingList(props) {
+
+
   function alertFunction(content) {
     alert("Clicked " + content);
   }

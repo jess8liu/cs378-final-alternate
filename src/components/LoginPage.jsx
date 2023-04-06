@@ -126,22 +126,26 @@ export default function LoginPage() {
         <>
           <div className="background">
             <div>
-              <HomePage curr_username={auth.currentUser.email} />
+              <HomePage
+                curr_username={auth.currentUser.email}
+              />
             </div>
+          </div>
 
-            {/* Logout Button */}
-            <div className="sidebar">
-              <button
-                className="btn logout"
-                onClick={(e) => { logout(e); }}
-              >
-                Log Out
-              </button>
-            </div>
+          {/* Logout Button */}
+          <div className="sidebar">
+            <button
+              className="btn logout"
+              onClick={(e) => { logout(e); }}
+            >
+              Log Out
+            </button>
           </div>
         </>
       ) : (
-        <></>
+        <>
+          
+        </>
       )}
     </>
   );

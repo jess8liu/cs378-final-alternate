@@ -7,6 +7,7 @@ import Note from "./Note"
 // import Notetaker from "./Notetaker";
 import SettingList from "./SettingList";
 import EditPage from "./EditPage";
+import SideBar from "./SideBar";
 
 export default function HomePage(props) {
   // ----------------------------------------------------------------------
@@ -18,6 +19,8 @@ export default function HomePage(props) {
   const [setting, setSetting] = useState(false);
   const [isEditing, setEditingState] = useState(false);
   const [edit_info, setEdit_Info] = useState('');
+  const [sidebar, setSidebar] = useState(true);
+
   // ----------------------------------------------------------------------
   // FUNCTIONS
   // Shows the list of notes
@@ -44,7 +47,8 @@ export default function HomePage(props) {
       title: "Unnamed",
       content: "",
       is_pinned: pin,
-      cur_uid: cur_uid
+      cur_uid: cur_uid,
+      tags: []
     })
   };
 
@@ -80,32 +84,25 @@ export default function HomePage(props) {
     setEditingState(false);
   }
 
+  const toggleSideBar = () => {
+    setSidebar(!sidebar);
+  }
+
   // ----------------------------------------------------------------------
   // DISPLAYED ON WEBSITE
   return (
     <>
-      <div className="sidebar">
-        {/* Menu for buttons */}
-        <div className="side box">
-          <div className="title_logo">
-            {/* Add logo image here */}
-            <img src={require("../images/bitmap.png")} alt="Image of Parchment's logo." width={"60%"} />
-          </div>
 
-          <div>
-            {/* Username */}
-            <h3>{props.curr_username}</h3>
-          </div>
-        </div>
-        <div className="user_btns_box">
-          <button className="subheader_btns">
-            Maps
-          </button>
-          <button className="subheader_btns">
-            Characters
-          </button>
-        </div>
-      </div>
+      {
+
+        sidebar &&
+
+        <SideBar 
+          user={props.curr_username} 
+          logout_dis={props.logout_dis}
+        />
+
+      }
 
       <div className="notes_home">
         {/* Header on top of the page */}
@@ -113,13 +110,25 @@ export default function HomePage(props) {
           <h1>
             Parchment
           </h1>
+
+          {/* Search Bar */}
+          <div className="search_box">
+            <textarea className="searchbar" placeholder="Search...">
+
+            </textarea>
+            <button className="search_btn">
+              Search
+            </button>
+          </div>
         </div>
 
         {/* Subheader with buttons for notes homepage */}
-        <div className="subheader_btns">
-          {/* <input type="Text" placeholder="text" value={note} onChange={(e) => setNote(e.target.value)}></input> */}
+        <div className="subheader">
           <button className="note_editor_btn" onClick={writeToDatabase}>
             Add Note
+          </button>
+          <button className="note_editor_btn" onClick={toggleSideBar}>
+            Collapse
           </button>
         </div>
 
@@ -132,15 +141,16 @@ export default function HomePage(props) {
             {!isEditing ? (
               <>
                 <div className="box">
-                  <div className="note_container">
-                    <h3>All Notes</h3>
-                  </div>
+                  <h3>All Notes</h3>
+                  {/* <div className="note_container">
+                    
+                  </div> */}
                 </div>
 
                 {listOfNotes.map(note => (
                   <>
-                    <Note 
-                      note_info={note} 
+                    <Note
+                      note_info={note}
                       edit_funct={() => { handleUpdate(note) }} 
                     />
                   </>
@@ -159,8 +169,6 @@ export default function HomePage(props) {
 
 
         </div>
-
-        {/* Search Bar */}
 
         {/* Save Button*/}
         <div className="btns_list"></div>

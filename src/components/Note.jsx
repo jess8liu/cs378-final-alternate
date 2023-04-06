@@ -30,6 +30,8 @@ function Note(props) {
     remove(ref(database, `/${auth.currentUser.uid}/${uid}`));
   };
 
+  const handleEdit = props.edit_funct;
+
 
   const handleUpdate = (note) => {
     setEdit_Info(note);
@@ -42,7 +44,7 @@ function Note(props) {
       <div className="singular_note">
         <div className="title_section">
           <div className="title">{props.note_info.title}</div>
-          <button className="save_btn" onClick={props.edit_funct}>
+          <button className="save_btn" onClick={props.edit_funct}> {/* TODO: rename class name*/ }
             Edit
           </button>
           <button className="pin_btn" onClick={() => togglePin(props.note_info.is_pinned)}>
@@ -67,9 +69,13 @@ function Note(props) {
 
         {/* Settings List */}
         {
-          setting && <SettingList
-            edit_funct={() => props.edit_funct}
-            trash_funct={() => handleDelete(props.note_info.cur_uid)} />
+          
+          setting && <><div className="dropdown_div">
+            <SettingList
+              edit_funct={props.edit_funct}
+              trash_funct={() => handleDelete(props.note_info.cur_uid)} />
+            </div></>
+
         }
       </div>
     </>
