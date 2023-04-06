@@ -79,6 +79,29 @@ input {
   color: white;
 }
 
+.title_input {
+  /* border: none; */
+  /* background-color: #dad7cd; */
+  font-size: larger;
+  width: 50%;
+  margin: 10px 0 10px 0;
+  padding: 10px;
+  resize: none;
+}
+
+.note_input {
+  width: 98%;
+  padding: 10px;
+  resize: none;
+}
+
+.edit_page_btns {
+  display: block;
+  margin: 20px 0 20px 20px;
+  padding: 5px;
+  float: right;
+}
+
 .subheader_btns {
   display: block;
   width: 100%;
@@ -164,7 +187,11 @@ input {
   resize: none;
   border: none;
   padding: 15px;
+  margin: 0;
   width: 90%;
+  height: 150px;
+  overflow-wrap: break-word;
+  overflow: hidden;
 }
 
 .trash_btn {

@@ -12,7 +12,7 @@ function SettingList(props) {
           setting_dis="Edit"
           // Can change function to whatever you define
 
-          function={() => alertFunction("Edit Function")}
+          function={props.edit_funct}
         />
         <DropdownItem
           setting_dis="Pin/Unpin"
@@ -22,7 +22,7 @@ function SettingList(props) {
         <DropdownItem
           setting_dis="Trash"
           // Can change function to whatever you define
-          function={() => alertFunction("Delete Function")}
+          function={props.trash_funct}
         />
         <DropdownItem
           setting_dis="Rename"

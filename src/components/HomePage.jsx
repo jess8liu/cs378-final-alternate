@@ -41,10 +41,10 @@ export default function HomePage(props) {
   const writeToDatabase = () => {
     const cur_uid = uid();
     set(ref(database, `/${auth.currentUser.uid}/${cur_uid}`), {
-      title: title,
+      title: "Unnamed",
       content: "",
       is_pinned: pin,
-      cur_uid: cur_uid,
+      cur_uid: cur_uid
     })
   };
 
@@ -125,57 +125,24 @@ export default function HomePage(props) {
 
         {/* List of Notes */}
         <div className="note_list box">
-          <div className="box">
-            <div className="note_container">
-              <h3>All Notes</h3>
-            </div>
-
-          </div>
-
-          <br />
+          {/* <br /> */}
 
           <div>
             {/* Show the notes if person is not currently editing the notes */}
             {!isEditing ? (
               <>
-                {/* <div className="singular_note">
-                  <Note title_dis="Title" text_dis="" hello />
+                <div className="box">
+                  <div className="note_container">
+                    <h3>All Notes</h3>
+                  </div>
                 </div>
-                <div className="singular_note">
-                  <Note title_dis="Title" />
-                </div>
-                <div className="singular_note">
-                  <Note title_dis="Title" />
-                </div> */}
+
                 {listOfNotes.map(note => (
                   <>
-                    <div className="singular_note">
-                      <div className="title_section">
-                        <div className="title">{note.title}</div>
-                        <button className="pin_btn" onClick={() => togglePin(note.is_pinned)}>
-                          Pin
-                        </button>
-                      </div>
-
-                      <div className="body_section">
-                        {/* Input Section (for notes) */}
-                        <textarea className="body_section textbox" value={note.content}>
-                        </textarea>
-                      </div>
-
-                      <div className="body_section">
-                        <button className="setting_btn" onClick={toggleSetting}>
-                          Settings
-                        </button>
-                        <button className="trash_btn" onClick={() => handleDelete(note.cur_uid)}>
-                          Trash
-                        </button>
-                      </div>
-
-                      {/* Settings List */}
-                      {setting && <SettingList />}
-                    </div>
-
+                    <Note 
+                      note_info={note} 
+                      edit_funct={() => { handleUpdate(note) }} 
+                    />
                   </>
                 ))}
               </>
@@ -194,29 +161,6 @@ export default function HomePage(props) {
         </div>
 
         {/* Search Bar */}
-        {/* <div className="box">
-          <p>
-            Add a new note
-          </p>
-          <form>
-            <input
-              type="text"
-              placeholder="Name"
-              onChange={(e) => setName(e.target.value)}
-            />
-            <button
-              className="btn save"
-              onClick={(e) => {
-                e.preventDefault();
-                saveArtist();
-              }}
-            >
-              Save
-            </button>
-
-            {errorMsg && <p className="error"> {errorMsg} </p>}
-          </form>
-        </div>
 
         {/* Save Button*/}
         <div className="btns_list"></div>

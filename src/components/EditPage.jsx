@@ -6,6 +6,7 @@ import { set, ref, onValue, remove, update } from "firebase/database";
 const EditPage = ({note_info}) => {
 
 	const [note, setNote] = useState(note_info.content);
+	const [title, setTitle] = useState(note_info.title);
 	// deletes the entire post from the database
 	const handleDelete = () => {
 		alert('Note will be deleted')
@@ -24,24 +25,26 @@ const EditPage = ({note_info}) => {
 	// updates the note to the database
 	const updateNote = (e) => {
 		update(ref(database, `/${auth.currentUser.uid}/${note_info.cur_uid}`), {
+			title: title,
 			content: note,
 			cur_uid: note_info.cur_uid,
 		});
 		alert('updating:', note)
 	}
-
+	
 	return (
 		<div>
 			<div>
-				<h1>Title</h1>
-				<button onClick={handleAddTags}>Add Tags</button>
-				<button>Pin</button>
-				<button>Settings</button>
+				<textarea className='title_input' rows='1' placeholder='Set Title' value={title} onChange={(e) => setTitle(e.target.value)}>
+				</textarea>
+				{/* <h1>Title</h1> */}
+				<button className='edit_page_btns' onClick={handleAddTags}>Add Tags</button>
+				<button className='edit_page_btns'>Pin</button>
 			</div>
 			<div>
-				<textarea rows='30' value={note} onChange={(e) => setNote(e.target.value)}>
+				<textarea className='note_input' rows='30' value={note} onChange={(e) => {setNote(e.target.value)}}>
 				</textarea>
-				<button onClick={updateNote}> Submit Text </button>
+				<button onClick={() => {updateNote();}}> Submit Text </button>
 			</div>
 			<div>
 				<button onClick={handleDelete}>Trash</button>
