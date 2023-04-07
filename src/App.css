@@ -61,6 +61,11 @@ input {
   background-color: #283b32;
 }
 
+.title_name {
+  display: inline;
+  float: left;
+}
+
 .notes_home {
   background-color: #dad7cd;
   display: inline;
@@ -174,7 +179,7 @@ input {
 /* COMPONENT: NOTE */
 
 .title_section {
-  display: flex;
+  display: block;
   background-color: #d9d9d9;
 }
 
@@ -214,14 +219,23 @@ input {
 }
 
 .search_box {
-  width: 50%;
+  padding: 2%;
+  display: inline;
   float: right;
+  width: 70%;
+  align-items: center;
+}
+
+.search_btn {
+  /* float: right; */
+  margin: 1%;
 }
 
 .searchbar {
   display: inline;
   width: 80%;
   resize: none;
+  /* float: right; */
 }
 
 /* ------------------------------------------------------------- */

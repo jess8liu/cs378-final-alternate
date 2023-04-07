@@ -97,8 +97,8 @@ export default function HomePage(props) {
 
         sidebar &&
 
-        <SideBar 
-          user={props.curr_username} 
+        <SideBar
+          user={props.curr_username}
           logout_dis={props.logout_dis}
         />
 
@@ -107,14 +107,15 @@ export default function HomePage(props) {
       <div className="notes_home">
         {/* Header on top of the page */}
         <div className="title_header">
-          <h1>
-            Parchment
-          </h1>
+          <div className="title_name">
+            <h1>
+              Parchment
+            </h1>
+          </div>
 
           {/* Search Bar */}
           <div className="search_box">
-            <textarea className="searchbar" placeholder="Search...">
-
+            <textarea className="searchbar" rows="1" placeholder="Search...">
             </textarea>
             <button className="search_btn">
               Search
@@ -127,9 +128,9 @@ export default function HomePage(props) {
           <button className="note_editor_btn" onClick={writeToDatabase}>
             Add Note
           </button>
-          <button className="note_editor_btn" onClick={toggleSideBar}>
+          {/* <button className="note_editor_btn" onClick={toggleSideBar}>
             Collapse
-          </button>
+          </button> */}
         </div>
 
         {/* List of Notes */}
@@ -151,7 +152,7 @@ export default function HomePage(props) {
                   <>
                     <Note
                       note_info={note}
-                      edit_funct={() => { handleUpdate(note) }} 
+                      edit_funct={() => { handleUpdate(note) }}
                     />
                   </>
                 ))}
