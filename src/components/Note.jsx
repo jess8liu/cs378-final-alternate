@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import SettingList from "./SettingList";
-import Notetake from "./Notetaker";
 import { set, ref, onValue, remove } from "firebase/database";
 import { auth, database } from "./config.jsx";
 import { uid } from "uid";
@@ -43,8 +42,10 @@ function Note(props) {
     <>
       <div className="singular_note">
         <div className="title_section">
-          <div className="title">{props.note_info.title}</div>
-          <button className="save_btn" onClick={props.edit_funct}> {/* TODO: rename class name*/ }
+          <div className="title">
+            {props.note_info.title}
+          </div>
+          <button className="save_btn" onClick={props.edit_funct}> {/* TODO: rename class name*/}
             Edit
           </button>
           <button className="pin_btn" onClick={() => togglePin(props.note_info.is_pinned)}>
@@ -69,12 +70,14 @@ function Note(props) {
 
         {/* Settings List */}
         {
-          
-          setting && <><div className="dropdown_div">
-            <SettingList
-              edit_funct={props.edit_funct}
-              trash_funct={() => handleDelete(props.note_info.cur_uid)} />
-            </div></>
+          setting &&
+          <>
+            <div className="dropdown_div">
+              <SettingList
+                edit_funct={props.edit_funct}
+                trash_funct={() => handleDelete(props.note_info.cur_uid)} />
+            </div>
+          </>
 
         }
       </div>

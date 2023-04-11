@@ -4,10 +4,9 @@ import { set, ref, onValue, remove } from "firebase/database";
 import { auth, database } from "./config.jsx";
 import { uid } from "uid";
 import Note from "./Note"
-// import Notetaker from "./Notetaker";
-import SettingList from "./SettingList";
 import EditPage from "./EditPage";
 import SideBar from "./SideBar";
+import MapNote from "./MapNote";
 
 export default function HomePage(props) {
   // ----------------------------------------------------------------------
@@ -113,17 +112,15 @@ export default function HomePage(props) {
     <>
 
       {
-
         sidebar &&
-
         <SideBar
           user={props.curr_username}
           logout_dis={props.logout_dis}
         />
-
       }
 
       <div className="notes_home">
+        {/* ------------------------------------------------------------------- */}
         {/* Header on top of the page */}
         <div className="title_header">
           <div className="title_name">
@@ -142,6 +139,7 @@ export default function HomePage(props) {
           </div>
         </div>
 
+        {/* ------------------------------------------------------------------- */}
         {/* Subheader with buttons for notes homepage */}
         <div className="subheader">
           <button className="note_editor_btn" onClick={writeToDatabase}>
@@ -152,22 +150,24 @@ export default function HomePage(props) {
           </button> */}
         </div>
 
+        {/* ------------------------------------------------------------------- */}
         {/* List of Notes */}
         <div className="note_list box">
-          {/* <br /> */}
-
           <div>
             {/* Show the notes if person is not currently editing the notes */}
             {!isEditing ? (
+              // de
               <>
                 {!isSearching ? (
                   <>
                     <div className="box">
                       <h3>All Notes</h3>
-                      {/* <div className="note_container">
-                      
-                    </div> */}
                     </div>
+
+                    <MapNote
+                      title="Forest Encampment"
+                      src="https://cdn.shopify.com/s/files/1/0585/4239/1348/products/ForestEncampment_digital_day_grid.jpg?v=1676584019"
+                    />
 
                     {listOfNotes.map(note => (
                       <>
@@ -179,15 +179,14 @@ export default function HomePage(props) {
                     ))}
                   </>)
                   :
+                  // IF user is searching 
                   (
                     <>
                       <div className="box">
-                        <h3>All Notes</h3>
-                        {/* <div className="note_container">
-                      
-                    </div> */}
+                        <h3>
+                          All Notes
+                        </h3>
                       </div>
-
                       {searchResults.map(note => (
                         <>
                           <Note
@@ -197,7 +196,6 @@ export default function HomePage(props) {
                         </>
                       ))}
                     </>
-
                   )}
               </>
             ) : (
@@ -210,14 +208,10 @@ export default function HomePage(props) {
               </>
             )}
           </div>
-
-
         </div>
-
         {/* Save Button*/}
         <div className="btns_list"></div>
       </div>
-
     </>
   );
 }

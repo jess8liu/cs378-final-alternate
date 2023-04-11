@@ -19,11 +19,11 @@ function SideBar(props) {
                 <h3 className="username">{props.user}</h3>
                 </div>
             </div>
-            <div className="user_btns_box">
-                <button className="subheader_btns">
+            <div className="side_btns_box">
+                <button className="side_subheader_btns">
                 Maps
                 </button>
-                <button className="subheader_btns">
+                <button className="side_subheader_btns">
                 Characters
                 </button>
             </div>

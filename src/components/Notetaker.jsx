@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { auth, database } from './config';
 import { set, ref, onValue } from 'firebase/database';
 import { uid } from 'uid';
-import Note from './Note.jsx';
 
 export default function Notetaker() {
   const [title, setTitle] = useState('');
