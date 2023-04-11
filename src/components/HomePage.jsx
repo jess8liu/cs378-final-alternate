@@ -21,6 +21,10 @@ export default function HomePage(props) {
   const [edit_info, setEdit_Info] = useState('');
   const [sidebar, setSidebar] = useState(true);
 
+  const [search, setSearch] = useState('');
+  const [isSearching, setIsSearching] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
+
   // ----------------------------------------------------------------------
   // FUNCTIONS
   // Shows the list of notes
@@ -88,6 +92,22 @@ export default function HomePage(props) {
     setSidebar(!sidebar);
   }
 
+  const handleSearch = () => {
+    setSearchResults([])
+    for (let x = 0; x < listOfNotes.length; x++) {
+      if (listOfNotes[x].content.includes(search) || listOfNotes[x].title.includes(search)) {
+        setSearchResults((oldArray) => [...oldArray, listOfNotes[x]]);
+      }
+    }
+    if (search === '') {
+      setIsSearching(false);
+      alert('setIsSearching to false');
+    } else {
+      setIsSearching(true);
+    }
+    setSearch('');
+  };
+
   // ----------------------------------------------------------------------
   // DISPLAYED ON WEBSITE
   return (
@@ -115,9 +135,9 @@ export default function HomePage(props) {
 
           {/* Search Bar */}
           <div className="search_box">
-            <textarea className="searchbar" rows="1" placeholder="Search...">
+            <textarea className="searchbar" value={search} onChange={(e) => setSearch(e.target.value)} rows="1" placeholder="Search...">
             </textarea>
-            <button className="search_btn">
+            <button className="search_btn" onClick={handleSearch}>
               Search
             </button>
           </div>
@@ -141,21 +161,46 @@ export default function HomePage(props) {
             {/* Show the notes if person is not currently editing the notes */}
             {!isEditing ? (
               <>
-                <div className="box">
-                  <h3>All Notes</h3>
-                  {/* <div className="note_container">
-                    
-                  </div> */}
-                </div>
-
-                {listOfNotes.map(note => (
+                {!isSearching ? (
                   <>
-                    <Note
-                      note_info={note}
-                      edit_funct={() => { handleUpdate(note) }}
-                    />
-                  </>
-                ))}
+                    <h1> default not searching here</h1>
+                    <div className="box">
+                      <h3>All Notes</h3>
+                      {/* <div className="note_container">
+                      
+                    </div> */}
+                    </div>
+
+                    {listOfNotes.map(note => (
+                      <>
+                        <Note
+                          note_info={note}
+                          edit_funct={() => { handleUpdate(note) }}
+                        />
+                      </>
+                    ))}
+                  </>)
+                  :
+                  (
+                    <>
+                      <div className="box">
+                        <h3>All Notes</h3>
+                        {/* <div className="note_container">
+                      
+                    </div> */}
+                      </div>
+
+                      {searchResults.map(note => (
+                        <>
+                          <Note
+                            note_info={note}
+                            edit_funct={() => { handleUpdate(note) }}
+                          />
+                        </>
+                      ))}
+                    </>
+
+                  )}
               </>
             ) : (
               <>
