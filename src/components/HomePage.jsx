@@ -162,7 +162,6 @@ export default function HomePage(props) {
               <>
                 {!isSearching ? (
                   <>
-                    <h1> default not searching here</h1>
                     <div className="box">
                       <h3>All Notes</h3>
                       {/* <div className="note_container">
