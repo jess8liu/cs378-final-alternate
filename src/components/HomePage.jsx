@@ -101,7 +101,6 @@ export default function HomePage(props) {
     }
     if (search === '') {
       setIsSearching(false);
-      alert('setIsSearching to false');
     } else {
       setIsSearching(true);
     }
