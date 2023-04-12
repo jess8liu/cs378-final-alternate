@@ -162,9 +162,8 @@ export default function HomePage(props) {
 
   };
 
+  // uploads the image to firebase storage
   const uploadImage = () => {
-    // const cur_uid = uid();
-    // set(ref(database, `/${auth.currentUser.uid}/${cur_uid}`)
     if (imageUpload == null) {
       return;
     }
@@ -177,6 +176,7 @@ export default function HomePage(props) {
     })
   };
 
+  // is passed to MapNote as argument to delete the image from database
   const deleteImage = (url) => {
     const imageRef = storageRef(storage, url);
     deleteObject(imageRef).then(() => {
