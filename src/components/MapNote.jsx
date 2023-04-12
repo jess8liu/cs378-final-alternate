@@ -36,7 +36,7 @@ function MapNote(props) {
 					</button>
 
 					<button className="trash_btn"
-						// onClick={() => handleDelete(props.note_info.cur_uid)}
+						 onClick={() => props.deleteImage(props.src)}
 					>
 						Trash
 					</button>

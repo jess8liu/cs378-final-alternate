@@ -9,6 +9,11 @@ import SideBar from "./SideBar";
 import MapNote from "./MapNote";
 import MapEditPage from "./MapEditPage";
 
+// imports for the image upload
+import { storage } from "./config.jsx";
+import { ref as storageRef, uploadBytes, listAll, getDownloadURL, deleteObject } from "firebase/storage";
+
+
 export default function HomePage(props) {
   // ----------------------------------------------------------------------
   // VARIABLES
@@ -22,11 +27,14 @@ export default function HomePage(props) {
   const [edit_info, setEdit_Info] = useState('');
   const [sidebar, setSidebar] = useState(true);
 
-
+  // search result
   const [search, setSearch] = useState('');
   const [isSearching, setIsSearching] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
 
+  // image upload 
+  const [imageUpload, setImageUpload] = useState(null);
+  const [imageList, setImageList] = useState([]);
 
 
   // ----------------------------------------------------------------------
@@ -34,7 +42,17 @@ export default function HomePage(props) {
   // Shows the list of notes
   useEffect(() => {
     auth.onAuthStateChanged(user => {
+
       if (user) {
+        setImageList([]);
+        listAll(storageRef(storage, `${auth.currentUser.uid}/`)).then((response) => {
+          response.items.forEach((item) => {
+            getDownloadURL(item).then((url) => {
+              setImageList((prev) => [...prev, url]);
+            });
+          });
+        });
+
         onValue(ref(database, `/${auth.currentUser.uid}`), (snapshot) => {
           setListOfNotes([]);
           const data = snapshot.val();
@@ -144,6 +162,29 @@ export default function HomePage(props) {
 
   };
 
+  const uploadImage = () => {
+    // const cur_uid = uid();
+    // set(ref(database, `/${auth.currentUser.uid}/${cur_uid}`)
+    if (imageUpload == null) {
+      return;
+    }
+    const cur_uid = uid();
+    const imageRef = storageRef(storage, `${auth.currentUser.uid}/${cur_uid}`);
+    uploadBytes(imageRef, imageUpload).then((snapshot) => {
+      getDownloadURL(snapshot.ref).then((url) => {
+        setImageList((prev) => [...prev, url])
+      })
+    })
+  };
+
+  const deleteImage = (url) => {
+    const imageRef = storageRef(storage, url);
+    deleteObject(imageRef).then(() => {
+      alert("Image Deleted");
+    })
+    setImageList(imageList.filter(item => item !== url));
+  }
+
   // ----------------------------------------------------------------------
   // DISPLAYED ON WEBSITE
   return (
@@ -179,6 +220,16 @@ export default function HomePage(props) {
               Clear
             </button>
           </div>
+          {/* Image Upload */}
+          <div>
+            <input
+              type="file"
+              onChange={(event) => { setImageUpload(event.target.files[0]) }}>
+            </input>
+            <button onClick={uploadImage}>
+              Upload Image
+            </button>
+          </div>
         </div>
 
         {/* ------------------------------------------------------------------- */}
@@ -197,6 +248,17 @@ export default function HomePage(props) {
         <div className="note_list box">
           <div>
             {/* Show the notes if person is not currently editing the notes */}
+{/* 
+            {imageList.map((url) => (
+              <>
+                <MapNote
+                  src={url}
+                  edit_funct={handleMapUpdate}
+                  deleteImage={deleteImage}
+                ></MapNote>
+              </>
+            ))} */}
+
 
             {!isEditing && !isMapEditing ? (
               // de
@@ -206,6 +268,16 @@ export default function HomePage(props) {
                     <div className="home_box">
                       <h3>All Notes</h3>
                     </div>
+
+                    {imageList.map((url) => (
+                      <>
+                        <MapNote
+                          src={url}
+                          edit_funct={handleMapUpdate}
+                          deleteImage={deleteImage}
+                        ></MapNote>
+                      </>
+                    ))}
 
                     <MapNote
                       title="Forest Encampment"
