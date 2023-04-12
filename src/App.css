@@ -40,6 +40,10 @@ input {
   width: 200px;
 }
 
+
+/* ------------------------------------------------------------- */
+/* HOME PAGE: SIDEBAR */
+
 .side {
   text-align: center;
   margin: 0;
@@ -53,6 +57,10 @@ input {
   margin: 0;
 }
 
+.username {
+  font-size: 100%;
+}
+
 .title_logo {
   width: 100%;
   display: inline-block;
@@ -61,8 +69,6 @@ input {
   background-color: #283b32;
 }
 
-
-
 .notes_home {
   background-color: #dad7cd;
   display: inline;
@@ -70,7 +76,6 @@ input {
   height: 100%;
   float: right;
 }
-
 
 /* ------------------------------------------------------------- */
 /* HOME PAGE: TITLE SECTION */
@@ -84,13 +89,13 @@ input {
   color: white;
 }
 
-/* TITLE SECTION */
+/* HOME PAGE: TITLE SECTION */
 .title_name {
   display: inline;
   float: left;
 }
 
-/* SEARCH BAR*/
+/* HOME PAGE: SEARCH BAR */
 .search_box {
   padding: 2%;
   display: inline;
@@ -112,37 +117,7 @@ input {
   margin: 1%;
 }
 
-/* ------------------------------------------------------------- */
 
-.username {
-  font-size: 100%;
-}
-
-
-/* ------------------------------------------------------------- */
-
-.title_input {
-  /* border: none; */
-  /* background-color: #dad7cd; */
-  font-size: larger;
-  width: 50%;
-  margin: 10px 0 10px 0;
-  padding: 10px;
-  resize: none;
-}
-
-.note_input {
-  width: 98%;
-  padding: 10px;
-  resize: none;
-}
-
-.edit_page_btns {
-  display: block;
-  margin: 20px 0 20px 20px;
-  padding: 5px;
-  float: right;
-}
 
 /* ------------------------------------------------------------- */
 /* HOME PAGE: SUBHEADER SECTION */
@@ -172,10 +147,8 @@ input {
   padding: 10px;
 }
 
-
 .error {
   font-family: Quicksand;
-
   background-color: lightpink;
 }
 
@@ -186,8 +159,6 @@ input {
 .btn {
   margin: 0px 5px;
 }
-
-
 
 .save {
   margin-left: 0px;
@@ -205,10 +176,75 @@ input {
 
 .singular_note {
   display: inline-block;
-  width: 300px;
-  height: 300px;
+  width: 30%;
+  height: 30%;
   margin: 5px;
 }
+
+
+/* ------------------------------------------------------------- */
+/* EDIT PAGE: EDIT SECTION */
+
+
+.title_input {
+  /* border: none; */
+  /* background-color: #dad7cd; */
+  font-size: larger;
+  width: 50%;
+  margin: 10px 0 10px 0;
+  padding: 10px;
+  resize: none;
+}
+
+.edit_page_btns {
+  display: block;
+  margin: 20px 0 20px 20px;
+  padding: 5px;
+  float: right;
+}
+
+.note_input {
+  width: 98%;
+  padding: 10px;
+  resize: none;
+}
+
+.darken {
+  background-color: rgb(73, 73, 73);
+}
+
+.red {
+  background-color: rgb(255, 0, 0);
+}
+
+.green {
+  background-color: rgb(0, 255, 4);
+}
+
+/* ------------------------------------------------------------- */
+/* MAP EDIT PAGE: EDIT SECTION */
+
+.map {
+  display: flex;
+  width: 100%;
+  /* padding: 10%; */
+
+  background-size: cover;
+}
+
+table {
+  width: 100%;
+}
+
+td {
+  height: auto;
+}
+
+tr {
+  height: 47px;
+}
+
+
 
 /* ------------------------------------------------------------- */
 /* COMPONENT: NOTE */

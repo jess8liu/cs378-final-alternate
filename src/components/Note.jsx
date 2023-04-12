@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import SettingList from "./SettingList";
 import { set, ref, onValue, remove } from "firebase/database";
 import { auth, database } from "./config.jsx";
-import { uid } from "uid";
 
 function Note(props) {
 

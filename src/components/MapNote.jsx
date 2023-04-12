@@ -1,7 +1,8 @@
-
+import React from "react";
 
 function MapNote(props) {
 
+	const edit_funct = props.edit_funct;
 
 	return (
 		<>
@@ -10,9 +11,7 @@ function MapNote(props) {
 					<div className="title">
 						{props.title}
 					</div>
-					<button className="save_btn"
-						// onClick={props.edit_funct}
-					>
+					<button className="save_btn" onClick={edit_funct}>
 						Edit
 					</button>
 					<button className="pin_btn"

@@ -7,6 +7,7 @@ import Note from "./Note"
 import EditPage from "./EditPage";
 import SideBar from "./SideBar";
 import MapNote from "./MapNote";
+import MapEditPage from "./MapEditPage";
 
 export default function HomePage(props) {
   // ----------------------------------------------------------------------
@@ -17,12 +18,16 @@ export default function HomePage(props) {
   const [content, setContent] = useState(props.content_dis)
   const [setting, setSetting] = useState(false);
   const [isEditing, setEditingState] = useState(false);
+  const [isMapEditing, setMapEditingState] = useState(false);
   const [edit_info, setEdit_Info] = useState('');
   const [sidebar, setSidebar] = useState(true);
+
 
   const [search, setSearch] = useState('');
   const [isSearching, setIsSearching] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
+
+
 
   // ----------------------------------------------------------------------
   // FUNCTIONS
@@ -51,7 +56,9 @@ export default function HomePage(props) {
       content: "",
       is_pinned: pin,
       cur_uid: cur_uid,
-      tags: []
+      character: false,
+      lore: false,
+      map: false
     })
   };
 
@@ -70,27 +77,27 @@ export default function HomePage(props) {
     setSetting(!setting);
   };
 
-  // Deletes the note; probably add an alert before completely deleting note
-  const handleDelete = (uid) => {
-    // implement once database is running
-    remove(ref(database, `/${auth.currentUser.uid}/${uid}`));
-  };
-
   const handleUpdate = (note) => {
     setEdit_Info(note);
     setEditingState(true);
     // Pass the uid and information to the editing page
   }
 
+  const handleMapUpdate = (e) => {
+    setMapEditingState(true);
+  }
+
   // Return from the editing page
   const handleExitEdit = (e) => {
     setEditingState(false);
+    setMapEditingState(false);
   }
 
   const toggleSideBar = () => {
     setSidebar(!sidebar);
   }
 
+  // filters the display to show the search results
   const handleSearch = () => {
     setSearchResults([])
     for (let x = 0; x < listOfNotes.length; x++) {
@@ -103,19 +110,51 @@ export default function HomePage(props) {
     } else {
       setIsSearching(true);
     }
+    // setSearch('');
+  };
+
+  const resetSearch = () => {
     setSearch('');
+    setIsSearching(false);
+  }
+
+  // filters the display to show the notes with the tag that the user clicked on
+  const handleTag = (tag) => {
+    setSearchResults([]);
+    if (tag === 'character') {
+      for (let x = 0; x < listOfNotes.length; x++) {
+        if (listOfNotes[x].character) {
+          setSearchResults((oldArray) => [...oldArray, listOfNotes[x]]);
+        }
+      }
+    } else if (tag === 'lore') {
+      for (let x = 0; x < listOfNotes.length; x++) {
+        if (listOfNotes[x].lore) {
+          setSearchResults((oldArray) => [...oldArray, listOfNotes[x]]);
+        }
+      }
+    } else if (tag === 'map') {
+      for (let x = 0; x < listOfNotes.length; x++) {
+        if (listOfNotes[x].map) {
+          setSearchResults((oldArray) => [...oldArray, listOfNotes[x]]);
+        }
+      }
+    }
+    setIsSearching(true);
+
   };
 
   // ----------------------------------------------------------------------
   // DISPLAYED ON WEBSITE
   return (
     <>
-
       {
         sidebar &&
         <SideBar
           user={props.curr_username}
           logout_dis={props.logout_dis}
+          handleTag={handleTag}
+          resetSearch={resetSearch}
         />
       }
 
@@ -136,6 +175,9 @@ export default function HomePage(props) {
             <button className="search_btn" onClick={handleSearch}>
               Search
             </button>
+            <button className="search_btn" onClick={resetSearch}>
+              Clear
+            </button>
           </div>
         </div>
 
@@ -155,7 +197,8 @@ export default function HomePage(props) {
         <div className="note_list box">
           <div>
             {/* Show the notes if person is not currently editing the notes */}
-            {!isEditing ? (
+
+            {!isEditing && !isMapEditing ? (
               // de
               <>
                 {!isSearching ? (
@@ -167,6 +210,7 @@ export default function HomePage(props) {
                     <MapNote
                       title="Forest Encampment"
                       src="https://cdn.shopify.com/s/files/1/0585/4239/1348/products/ForestEncampment_digital_day_grid.jpg?v=1676584019"
+                      edit_funct={handleMapUpdate}
                     />
 
                     {listOfNotes.map(note => (
@@ -177,7 +221,8 @@ export default function HomePage(props) {
                         />
                       </>
                     ))}
-                  </>)
+                  </>
+                )
                   :
                   // IF user is searching 
                   (
@@ -204,14 +249,26 @@ export default function HomePage(props) {
                 <button onClick={handleExitEdit}>
                   Exit
                 </button>
-                <EditPage note_info={edit_info} />
+
+                {
+                  isMapEditing &&
+                  <MapEditPage
+                    title="Forest Encampment"
+                    src="https://cdn.shopify.com/s/files/1/0585/4239/1348/products/ForestEncampment_digital_day_grid.jpg?v=1676584019"
+                    edit_funct={handleMapUpdate} />
+                }
+
+                {
+                  isEditing &&
+                  <EditPage note_info={edit_info} />
+                }
               </>
             )}
           </div>
         </div>
         {/* Save Button*/}
         <div className="btns_list"></div>
-      </div>
+      </div >
     </>
   );
 }
