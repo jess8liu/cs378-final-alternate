@@ -4,16 +4,44 @@
   font-family: Quicksand;
 }
 
-/* div {
-  border: .5px dotted black;
-} */
-
-.box {
-  border: lightgray 1px solid;
-  margin: 1%;
-  padding: 1%;
-  float: center;
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #eeeaea;
 }
+
+
+/* ------------------------------------------------------------- */
+/* LOGIN PAGE */
+
+
+.login_logo {
+  display: flex;
+  padding: 2%;
+  background-color: #283b32;
+}
+
+.login_img {
+  margin: 0 auto; 
+  height: 80px;
+  width: 120px;
+}
+
+.login_box {
+  border: lightgray 1px solid;
+  background-color: white;
+  display: block;
+  margin: 0 auto;
+  padding: 1%;
+  width: 300px;
+}
+
+
+/* ------------------------------------------------------------- */
+
 
 .note_list {
   padding: 20px;
@@ -75,6 +103,13 @@ input {
   width: 80%;
   height: 100%;
   float: right;
+}
+
+.home_box {
+  border: lightgray 1px solid;
+  margin: 1%;
+  padding: 1%;
+  float: center;
 }
 
 /* ------------------------------------------------------------- */

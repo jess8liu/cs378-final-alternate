@@ -203,7 +203,7 @@ export default function HomePage(props) {
               <>
                 {!isSearching ? (
                   <>
-                    <div className="box">
+                    <div className="home_box">
                       <h3>All Notes</h3>
                     </div>
 
@@ -227,7 +227,7 @@ export default function HomePage(props) {
                   // IF user is searching 
                   (
                     <>
-                      <div className="box">
+                      <div className="home_box">
                         <h3>
                           All Notes
                         </h3>

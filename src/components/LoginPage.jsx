@@ -58,10 +58,25 @@ export default function LoginPage() {
   return (
     <>
       {!isLoggedIn ? (
-        <>
+        <div id="root" className="login_container">
+
+          {/*------------------------ LOGO ------------------------ */}
+
+          <div className="login_logo">
+
+              {/* Add logo image here */}
+              <img  className="login_img"
+                    src={require("../images/bitmap.png")} 
+                    alt="Image of Parchment's logo." />
+
+          </div>
+          <br/>
+          <br/>
+
+
           {/*----------------------- SIGN UP ----------------------- */}
 
-          <div className="box">
+          <div className="login_box">
             <p> Sign up for an account: </p>
 
             <input
@@ -89,10 +104,11 @@ export default function LoginPage() {
               Sign Up
             </button>
           </div>
-          <br />
+
+          <br/>
           {/*----------------------- LOG IN ----------------------- */}
 
-          <div className="box">
+          <div className="login_box">
             <p> Log in to your account: </p>
             <input
               type="text"
@@ -115,7 +131,8 @@ export default function LoginPage() {
               Log In
             </button>
           </div>
-        </>
+
+        </div>
       ) : (
         <></>
       )}
