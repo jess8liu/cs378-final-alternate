@@ -18,13 +18,16 @@ function ImageEditPage(props) {
 				<button className='edit_page_btns'>Pin</button>
 			</div>
 			<div>
-				<div className='map' style={{ backgroundImage: 'url("https://cdn.shopify.com/s/files/1/0585/4239/1348/products/ForestEncampment_digital_day_grid.jpg?v=1676584019")'}}>
-					{/* <img src={props.src}></img> */}
-					<MapCells />
+
+				<div className='map' style={{
+					background_size: 'contain'
+				}}>
+					<img src={props.src}></img>
+					{/* <MapCells /> */}
 				</div>
 			</div>
 			<div>
-				{/* <button onClick={handleDelete}>Trash</button> */}
+				<button onClick={() => props.deleteImage(props.src)}>Trash</button>
 			</div>
 		</div>
 	)

@@ -9,7 +9,7 @@ import SideBar from "./SideBar";
 import MapNote from "./MapNote";
 import MapEditPage from "./MapEditPage";
 import ImageNote from "../ImageNote";
-
+import ImageEditPage from "./ImageEditPage"
 // imports for the image upload
 import { storage } from "./config.jsx";
 import { ref as storageRef, uploadBytes, listAll, getDownloadURL, deleteObject } from "firebase/storage";
@@ -267,7 +267,7 @@ export default function HomePage(props) {
             ))} */}
 
 
-            {!isEditing && !isMapEditing ? (
+            {!isEditing && !isMapEditing && !isImageEditing ? (
               // de
               <>
                 {!isSearching ? (
@@ -332,10 +332,10 @@ export default function HomePage(props) {
                 {
                   isImageEditing &&
                   <ImageEditPage 
-                          src={url}
-                          edit_funct={() => handleImageUpdate(url)}
+                          src={edit_info}
+                          edit_funct={() => handleImageUpdate(edit_info)}
                           deleteImage={deleteImage}
-                  _>
+                  _/>
                 }
 
                 {
