@@ -13,6 +13,10 @@ body,
   background-color: #eeeaea;
 }
 
+button {
+  cursor: pointer;
+}
+
 
 /* ------------------------------------------------------------- */
 /* LOGIN PAGE */
@@ -79,6 +83,7 @@ input {
 }
 
 .sidebar {
+  background-color: white;
   display: inline;
   width: 20%;
   float: left;
@@ -102,6 +107,7 @@ input {
   display: inline;
   width: 80%;
   height: 100%;
+  padding-bottom: 4%;
   float: right;
 }
 
@@ -220,20 +226,31 @@ input {
 /* ------------------------------------------------------------- */
 /* EDIT PAGE: EDIT SECTION */
 
+.title_input_box {
+  display: inline;
+  float: left;
+  width: 70%;
+}
 
 .title_input {
   /* border: none; */
   /* background-color: #dad7cd; */
   font-size: larger;
-  width: 50%;
+  width: 85%;
   margin: 10px 0 10px 0;
   padding: 10px;
   resize: none;
 }
 
+.tag_box {
+  display: inline;
+  float: right;
+  width: 20%;
+}
+
 .edit_page_btns {
   display: block;
-  margin: 20px 0 20px 20px;
+  margin: 5% 0 5% 5%;
   padding: 5px;
   float: right;
 }
@@ -244,16 +261,17 @@ input {
   resize: none;
 }
 
-.darken {
-  background-color: rgb(73, 73, 73);
+.btn {
+  border-radius: 5px;
+  border: 1px solid #7c7c7c;
 }
 
-.red {
-  background-color: rgb(255, 0, 0);
+.unselected {
+  background-color: rgb(195, 195, 195);
 }
 
-.green {
-  background-color: rgb(0, 255, 4);
+.selected {
+  background-color: rgb(138, 138, 138);
 }
 
 /* ------------------------------------------------------------- */

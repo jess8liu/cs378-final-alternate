@@ -8,6 +8,7 @@ import EditPage from "./EditPage";
 import SideBar from "./SideBar";
 import MapNote from "./MapNote";
 import MapEditPage from "./MapEditPage";
+import ImageNote from "../ImageNote";
 
 // imports for the image upload
 import { storage } from "./config.jsx";
@@ -35,7 +36,7 @@ export default function HomePage(props) {
   // image upload 
   const [imageUpload, setImageUpload] = useState(null);
   const [imageList, setImageList] = useState([]);
-
+  const [isImageEditing, setIsImageEditing] = useState(false);
 
   // ----------------------------------------------------------------------
   // FUNCTIONS
@@ -105,10 +106,16 @@ export default function HomePage(props) {
     setMapEditingState(true);
   }
 
+  const handleImageUpdate = (url) => {
+    setIsImageEditing(true);
+    setEdit_Info(url);
+  }
+
   // Return from the editing page
   const handleExitEdit = (e) => {
     setEditingState(false);
     setMapEditingState(false);
+    setIsImageEditing(false);
   }
 
   const toggleSideBar = () => {
@@ -271,11 +278,11 @@ export default function HomePage(props) {
 
                     {imageList.map((url) => (
                       <>
-                        <MapNote
+                        <ImageNote
                           src={url}
-                          edit_funct={handleMapUpdate}
+                          edit_funct={() => handleImageUpdate(url)}
                           deleteImage={deleteImage}
-                        ></MapNote>
+                        ></ImageNote>
                       </>
                     ))}
 
@@ -323,6 +330,15 @@ export default function HomePage(props) {
                 </button>
 
                 {
+                  isImageEditing &&
+                  <ImageEditPage 
+                          src={url}
+                          edit_funct={() => handleImageUpdate(url)}
+                          deleteImage={deleteImage}
+                  _>
+                }
+
+                {
                   isMapEditing &&
                   <MapEditPage
                     title="Forest Encampment"
@@ -334,6 +350,8 @@ export default function HomePage(props) {
                   isEditing &&
                   <EditPage note_info={edit_info} />
                 }
+
+
               </>
             )}
           </div>
