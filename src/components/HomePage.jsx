@@ -227,27 +227,30 @@ export default function HomePage(props) {
               Clear
             </button>
           </div>
-          {/* Image Upload */}
-          <div>
-            <input
-              type="file"
-              onChange={(event) => { setImageUpload(event.target.files[0]) }}>
-            </input>
-            <button onClick={uploadImage}>
-              Upload Image
-            </button>
-          </div>
         </div>
 
         {/* ------------------------------------------------------------------- */}
         {/* Subheader with buttons for notes homepage */}
         <div className="subheader">
-          <button className="note_editor_btn" onClick={writeToDatabase}>
-            Add Note
-          </button>
+          <div className="subheader_btns_box">
+            <button className="note_editor_btn" onClick={writeToDatabase}>
+              Add Note
+            </button>
+            {/* Image Upload */}
+            <button className="note_editor_btn" onClick={uploadImage}>
+              Upload Image
+            </button>
+            <input
+              className="images_input"
+              type="file"
+              onChange={(event) => { setImageUpload(event.target.files[0]) }}>
+            </input>
+          </div>
           {/* <button className="note_editor_btn" onClick={toggleSideBar}>
             Collapse
           </button> */}
+
+
         </div>
 
         {/* ------------------------------------------------------------------- */}
@@ -255,7 +258,7 @@ export default function HomePage(props) {
         <div className="note_list box">
           <div>
             {/* Show the notes if person is not currently editing the notes */}
-{/* 
+            {/* 
             {imageList.map((url) => (
               <>
                 <MapNote
@@ -331,11 +334,11 @@ export default function HomePage(props) {
 
                 {
                   isImageEditing &&
-                  <ImageEditPage 
-                          src={edit_info}
-                          edit_funct={() => handleImageUpdate(edit_info)}
-                          deleteImage={deleteImage}
-                  _/>
+                  <ImageEditPage
+                    src={edit_info}
+                    edit_funct={() => handleImageUpdate(edit_info)}
+                    deleteImage={deleteImage}
+                    _ />
                 }
 
                 {
