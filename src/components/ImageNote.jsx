@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { storage } from "./config.jsx";
-import { ref as storageRef, uploadBytes, listAll, getDownloadURL, deleteObject, updateMetadata, uploadBytesResumable, getMetadata} from "firebase/storage";
+import { ref as storageRef, uploadBytes, listAll, getDownloadURL, deleteObject, updateMetadata, uploadBytesResumable, getMetadata } from "firebase/storage";
 function ImageNote(props) {
 
 	const edit_funct = props.edit_funct;
@@ -28,7 +28,7 @@ function ImageNote(props) {
 						Edit
 					</button>
 					<button className="pin_btn"
-						// onClick={() => togglePin(props.note_info.is_pinned)}
+					// onClick={() => togglePin(props.note_info.is_pinned)}
 					>
 						Pin
 					</button>
@@ -43,13 +43,13 @@ function ImageNote(props) {
 
 				<div className="body_section">
 					<button className="setting_btn"
-						// onClick={toggleSetting}
+					// onClick={toggleSetting}
 					>
 						Settings
 					</button>
 
 					<button className="trash_btn"
-						 onClick={() => props.deleteImage(props.src)}
+						onClick={() => props.deleteImage(props.src)}
 					>
 						Trash
 					</button>

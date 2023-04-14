@@ -161,12 +161,25 @@ export default function HomePage(props) {
 
   // filters the display to show the notes with the tag that the user clicked on
   const handleTag = (tag) => {
+    setImageSearchResults([])
     setSearchResults([]);
+
     if (tag === 'character') {
+      // filters through the text notes
       for (let x = 0; x < listOfNotes.length; x++) {
         if (listOfNotes[x].character) {
           setSearchResults((oldArray) => [...oldArray, listOfNotes[x]]);
         }
+      }
+      for (let x = 0; x < imageList.length; x++) {
+        const imageRef = storageRef(storage, imageList[x]);
+        getMetadata(imageRef).then((metadata) => {
+          if (metadata.customMetadata.character) {
+            setImageSearchResults((oldArray) => [...oldArray, imageList[x]]);
+          }
+        }).catch((error) => {
+          alert(error);
+        })
       }
     } else if (tag === 'lore') {
       for (let x = 0; x < listOfNotes.length; x++) {
@@ -174,11 +187,31 @@ export default function HomePage(props) {
           setSearchResults((oldArray) => [...oldArray, listOfNotes[x]]);
         }
       }
+      for (let x = 0; x < imageList.length; x++) {
+        const imageRef = storageRef(storage, imageList[x]);
+        getMetadata(imageRef).then((metadata) => {
+          if (metadata.customMetadata.lore) {
+            setImageSearchResults((oldArray) => [...oldArray, imageList[x]]);
+          }
+        }).catch((error) => {
+          alert(error);
+        })
+      }
     } else if (tag === 'map') {
       for (let x = 0; x < listOfNotes.length; x++) {
         if (listOfNotes[x].map) {
           setSearchResults((oldArray) => [...oldArray, listOfNotes[x]]);
         }
+      }
+      for (let x = 0; x < imageList.length; x++) {
+        const imageRef = storageRef(storage, imageList[x]);
+        getMetadata(imageRef).then((metadata) => {
+          if (metadata.customMetadata.map) {
+            setImageSearchResults((oldArray) => [...oldArray, imageList[x]]);
+          }
+        }).catch((error) => {
+          alert(error);
+        })
       }
     }
     setIsSearching(true);
@@ -340,14 +373,14 @@ export default function HomePage(props) {
 
                       {/* displays the searched image notes */}
                       {imageSearchResults.map((url) => (
-                      <>
-                        <ImageNote
-                          src={url}
-                          edit_funct={() => handleImageUpdate(url)}
-                          deleteImage={deleteImage}
-                        ></ImageNote>
-                      </>
-                    ))
+                        <>
+                          <ImageNote
+                            src={url}
+                            edit_funct={() => handleImageUpdate(url)}
+                            deleteImage={deleteImage}
+                          ></ImageNote>
+                        </>
+                      ))
                       }
 
                       {/* // displays the searched text note */}
