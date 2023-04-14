@@ -39,7 +39,6 @@ export default function HomePage(props) {
   const [imageUpload, setImageUpload] = useState(null);
   const [imageList, setImageList] = useState([]);
   const [isImageEditing, setIsImageEditing] = useState(false);
-  const [imageTitle, setImageTitle] = useState("");
 
   // ----------------------------------------------------------------------
   // FUNCTIONS
@@ -194,7 +193,7 @@ export default function HomePage(props) {
     const cur_uid = uid();
     const newMetaData = {
       customMetadata: {
-        noteTitle: imageTitle,
+        noteTitle: "Untitled",
       }
     }
     const imageRef = storageRef(storage, `${auth.currentUser.uid}/${cur_uid}`);
@@ -202,7 +201,6 @@ export default function HomePage(props) {
       getDownloadURL(snapshot.ref).then((url) => {
         setImageList((prev) => [...prev, url]);
       });
-      setImageTitle("");
     });
   };
 
@@ -269,14 +267,6 @@ export default function HomePage(props) {
               className="images_input"
               type="file"
               onChange={(event) => { setImageUpload(event.target.files[0]) }}>
-            </input>
-            <input
-              type="text"
-              placeholder="Image Title"
-              value={imageTitle}
-              onChange={(e) => setImageTitle(e.target.value)}
-            >
-
             </input>
           </div>
           {/* <button className="note_editor_btn" onClick={toggleSideBar}>

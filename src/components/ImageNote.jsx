@@ -6,6 +6,8 @@ function ImageNote(props) {
 	const edit_funct = props.edit_funct;
 	const [title, setTitle] = useState('');
 
+
+
 	useEffect(() => {
 		const imageRef = storageRef(storage, props.src);
 		getMetadata(imageRef).then((metadata) => {
