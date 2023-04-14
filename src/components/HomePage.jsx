@@ -8,11 +8,11 @@ import EditPage from "./EditPage";
 import SideBar from "./SideBar";
 import MapNote from "./MapNote";
 import MapEditPage from "./MapEditPage";
-import ImageNote from "../ImageNote";
+import ImageNote from "./ImageNote";
 import ImageEditPage from "./ImageEditPage"
 // imports for the image upload
 import { storage } from "./config.jsx";
-import { ref as storageRef, uploadBytes, listAll, getDownloadURL, deleteObject } from "firebase/storage";
+import { ref as storageRef, uploadBytes, listAll, getDownloadURL, deleteObject, updateMetadata, uploadBytesResumable, getMetadata } from "firebase/storage";
 
 
 export default function HomePage(props) {
@@ -33,10 +33,13 @@ export default function HomePage(props) {
   const [isSearching, setIsSearching] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
 
+  const [imageSearchResults, setImageSearchResults] = useState([]);
+
   // image upload 
   const [imageUpload, setImageUpload] = useState(null);
   const [imageList, setImageList] = useState([]);
   const [isImageEditing, setIsImageEditing] = useState(false);
+  const [imageTitle, setImageTitle] = useState("");
 
   // ----------------------------------------------------------------------
   // FUNCTIONS
@@ -77,7 +80,7 @@ export default function HomePage(props) {
       cur_uid: cur_uid,
       character: false,
       lore: false,
-      map: false
+      map: false,
     })
   };
 
@@ -124,9 +127,23 @@ export default function HomePage(props) {
 
   // filters the display to show the search results
   const handleSearch = () => {
-    setSearchResults([])
+    setSearchResults([]);
+    setImageSearchResults([]);
+    // checks the image list first
+    for (let x = 0; x < imageList.length; x++) {
+      const imageRef = storageRef(storage, imageList[x]);
+      getMetadata(imageRef).then((metadata) => {
+        if (metadata.customMetadata.noteTitle.toLowerCase().includes(search)) {
+          setImageSearchResults((oldArray) => [...oldArray, imageList[x]]);
+        }
+      }).catch((error) => {
+        alert(error);
+      })
+    }
+
+    // checks the text notes list 
     for (let x = 0; x < listOfNotes.length; x++) {
-      if (listOfNotes[x].content.includes(search) || listOfNotes[x].title.includes(search)) {
+      if (listOfNotes[x].content.toLowerCase().includes(search) || listOfNotes[x].title.toLowerCase().includes(search)) {
         setSearchResults((oldArray) => [...oldArray, listOfNotes[x]]);
       }
     }
@@ -169,18 +186,24 @@ export default function HomePage(props) {
 
   };
 
-  // uploads the image to firebase storage
+  // uploads the image to firebase storage with its metadata
   const uploadImage = () => {
     if (imageUpload == null) {
       return;
     }
     const cur_uid = uid();
+    const newMetaData = {
+      customMetadata: {
+        noteTitle: imageTitle,
+      }
+    }
     const imageRef = storageRef(storage, `${auth.currentUser.uid}/${cur_uid}`);
-    uploadBytes(imageRef, imageUpload).then((snapshot) => {
+    uploadBytesResumable(imageRef, imageUpload, newMetaData).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
-        setImageList((prev) => [...prev, url])
-      })
-    })
+        setImageList((prev) => [...prev, url]);
+      });
+      setImageTitle("");
+    });
   };
 
   // is passed to MapNote as argument to delete the image from database
@@ -191,6 +214,8 @@ export default function HomePage(props) {
     })
     setImageList(imageList.filter(item => item !== url));
   }
+
+
 
   // ----------------------------------------------------------------------
   // DISPLAYED ON WEBSITE
@@ -218,7 +243,7 @@ export default function HomePage(props) {
 
           {/* Search Bar */}
           <div className="search_box">
-            <textarea className="searchbar" value={search} onChange={(e) => setSearch(e.target.value)} rows="1" placeholder="Search...">
+            <textarea className="searchbar" value={search} onChange={(e) => setSearch(e.target.value.toLowerCase())} rows="1" placeholder="Search...">
             </textarea>
             <button className="search_btn" onClick={handleSearch}>
               Search
@@ -244,6 +269,14 @@ export default function HomePage(props) {
               className="images_input"
               type="file"
               onChange={(event) => { setImageUpload(event.target.files[0]) }}>
+            </input>
+            <input
+              type="text"
+              placeholder="Image Title"
+              value={imageTitle}
+              onChange={(e) => setImageTitle(e.target.value)}
+            >
+
             </input>
           </div>
           {/* <button className="note_editor_btn" onClick={toggleSideBar}>
@@ -314,6 +347,20 @@ export default function HomePage(props) {
                           All Notes
                         </h3>
                       </div>
+
+                      {/* displays the searched image notes */}
+                      {imageSearchResults.map((url) => (
+                      <>
+                        <ImageNote
+                          src={url}
+                          edit_funct={() => handleImageUpdate(url)}
+                          deleteImage={deleteImage}
+                        ></ImageNote>
+                      </>
+                    ))
+                      }
+
+                      {/* // displays the searched text note */}
                       {searchResults.map(note => (
                         <>
                           <Note
