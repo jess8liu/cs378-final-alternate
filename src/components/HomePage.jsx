@@ -347,7 +347,7 @@ export default function HomePage(props) {
 
                     <MapNote
                       title="Forest Camp"
-                      src="https://cdn.shopify.com/s/files/1/0585/4239/1348/products/ForestEncampment_digital_day_grid.jpg?v=1676584019"
+                      src="https://i.pinimg.com/originals/ca/35/48/ca3548a64c848549747bd88a1e5a14bc.png"
                       edit_funct={handleMapUpdate}
                     />
 
@@ -423,8 +423,6 @@ export default function HomePage(props) {
                   isEditing &&
                   <EditPage note_info={edit_info} />
                 }
-
-
               </>
             )}
           </div>

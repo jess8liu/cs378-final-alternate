@@ -59,7 +59,6 @@ function ImageEditPage(props) {
 	return (
 		<div>
 			<div>
-
 				<div className="title_input_box">
           <textarea
             className='title_input'

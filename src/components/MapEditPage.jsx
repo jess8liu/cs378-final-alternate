@@ -9,16 +9,41 @@ function MapEditPage(props) {
 	return (
 		<div>
 			<div>
-				<textarea className='title_input' rows='1' placeholder='Set Title' value={props.title}
-				// onChange={(e) => setTitle(e.target.value)}
-				>
-				</textarea>
-				{/* <h1>Title</h1> */}
-				{/* <button className='edit_page_btns' onClick={handleAddTags}>Add Tags</button> */}
-				<button className='edit_page_btns'>Pin</button>
+				<div className="title_input_box">
+					<textarea
+						className='title_input'
+						rows='1'
+						placeholder='Set Title'
+						value={props.title}
+            // onChange={(e) => setTitle(e.target.value)}
+          />
+					<button className='edit_page_btns'>Pin</button>
+				</div>
+				<div className="tag_box">
+          <button className={`edit_page_btns`}
+          // onClick={handleCharacter}
+          >
+						Character
+					</button>
+          <button className={`edit_page_btns`}
+          // onClick={handleLore}
+          >
+						Lore
+					</button>
+          <button className={`edit_page_btns`}
+            // onClick={handleMap}
+          >
+						Map
+					</button>
+          <button className='edit_page_btns'
+            // onClick={() => { updateNote(); }}
+          >
+            Save Tags
+          </button>
+				</div>
 			</div>
 			<div>
-				<div className='map' style={{ backgroundImage: 'url("https://cdn.shopify.com/s/files/1/0585/4239/1348/products/ForestEncampment_digital_day_grid.jpg?v=1676584019")'}}>
+				<div className='map' style={{ backgroundImage: 'url("https://i.pinimg.com/originals/ca/35/48/ca3548a64c848549747bd88a1e5a14bc.png")'}}>
 					{/* <img src={props.src}></img> */}
 					<MapCells />
 				</div>
