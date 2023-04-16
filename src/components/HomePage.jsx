@@ -218,8 +218,12 @@ export default function HomePage(props) {
 
           {/* Search Bar */}
           <div className="search_box">
-            <textarea className="searchbar" value={search} onChange={(e) => setSearch(e.target.value)} rows="1" placeholder="Search...">
-            </textarea>
+            <textarea
+              className="searchbar"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              rows="1"
+              placeholder="Search..." />
             <button className="search_btn" onClick={handleSearch}>
               Search
             </button>
@@ -276,7 +280,9 @@ export default function HomePage(props) {
                 {!isSearching ? (
                   <>
                     <div className="home_box">
-                      <h3>All Notes</h3>
+                      <h3>
+                        All Notes
+                      </h3>
                     </div>
 
                     {imageList.map((url) => (
