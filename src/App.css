@@ -158,12 +158,16 @@ input {
 
 .search_btn {
   /* float: right; */
-  margin: 1%;
-  width: 30px;
-  height: 30px;
+  margin: 1% 0 1% .5%;
+  width: 32px;
+  height: 32px;
 }
 
-
+.clear_btn {
+  margin: 1% .5% 1% .5%;
+  width: 40px;
+  height: 32px;
+}
 
 /* ------------------------------------------------------------- */
 /* HOME PAGE: SUBHEADER SECTION */

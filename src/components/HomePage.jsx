@@ -289,7 +289,7 @@ export default function HomePage(props) {
             <button className="search_btn" onClick={handleSearch}>
               <img className="btn_img" src={magnifying_glass} alt="Search icon." title="Search"/>
             </button>
-            <button className="search_btn" onClick={resetSearch}>
+            <button className="clear_btn" onClick={resetSearch}>
               <img className="btn_img" src={clear} alt="Clear search icon." title="Clear"/>
             </button>
           </div>
