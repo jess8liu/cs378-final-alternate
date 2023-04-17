@@ -67,7 +67,7 @@ export default function LoginPage() {
               {/* Add logo image here */}
               <img  className="login_img"
                     src={require("../images/bitmap.png")} 
-                    alt="Image of Parchment's logo." />
+                    alt="Parchment's logo." />
 
           </div>
           <br/>

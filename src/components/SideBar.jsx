@@ -11,7 +11,7 @@ function SideBar(props) {
         <div className="side">
           <div className="title_logo">
             {/* Add logo image here */}
-            <img src={require("../images/bitmap.png")} alt="Image of Parchment's logo." width={'50%'} />
+            <img src={require("../images/bitmap.png")} alt="Parchment's logo." width={'50%'} />
           </div>
 
           <div>
