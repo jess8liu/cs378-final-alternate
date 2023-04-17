@@ -150,14 +150,17 @@ input {
 .searchbar {
   display: inline;
   width: 80%;
+  height: 25px;
   resize: none;
+  margin: 1% 0 1% 0;
   /* float: right; */
 }
 
 .search_btn {
   /* float: right; */
-  margin: 0 .5% .5% .5%;
-  padding: .5%;
+  margin: 1%;
+  width: 30px;
+  height: 30px;
 }
 
 

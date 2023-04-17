@@ -14,6 +14,14 @@ import ImageEditPage from "./ImageEditPage"
 // imports for the image upload
 import { storage } from "./config.jsx";
 import { ref as storageRef, uploadBytes, listAll, getDownloadURL, deleteObject, updateMetadata, uploadBytesResumable, getMetadata } from "firebase/storage";
+
+
+// Icons & images
+import gear from "../images/gear.svg"
+import image from "../images/image.svg"
+import magnifying_glass from "../images/magnifying_glass.svg"
+import upload from "../images/upload.svg"
+import clear from "../images/clear.svg"
 import exit from "../images/exit.svg";
 
 
@@ -279,10 +287,10 @@ export default function HomePage(props) {
             <textarea className="searchbar" value={search} onChange={(e) => setSearch(e.target.value.toLowerCase())} rows="1" placeholder="Search...">
             </textarea>
             <button className="search_btn" onClick={handleSearch}>
-              Search
+              <img className="btn_img" src={magnifying_glass} alt="Search icon." title="Search"/>
             </button>
             <button className="search_btn" onClick={resetSearch}>
-              Clear
+              <img className="btn_img" src={clear} alt="Clear icon." title="Clear"/>
             </button>
           </div>
         </div>
