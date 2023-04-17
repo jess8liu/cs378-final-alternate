@@ -18,7 +18,6 @@ function Note(props) {
 
 
   const togglePin = (e) => {
-    e.preventDefault();
     setPin(!pin);
     console.log("Pin: " + pin);
   };
@@ -53,12 +52,20 @@ function Note(props) {
 
           <button className="save_btn img_btn"
 						onClick={props.edit_funct} title="Edit Note">
-						<img className="btn_img" src={note_edit}/>
+						<img className="btn_img" src={note_edit} alt="Note editing icon."/>
 					</button>
 					<button className="pin_btn img_btn"
-            onClick={() => togglePin(props.note_info.is_pinned)}
-						title="Pin Note">
-						<img className="btn_img" src={unpinned}/>
+            onClick={() => togglePin(props.note_info.is_pinned)}>
+            {props.note_info.is_pinned ? (
+              <>
+              <img className="btn_img" src={pinned} alt="Note pinned icon." title="Pinned Note"/>
+              </>
+            ) : (
+              <>
+              <img className="btn_img" src={unpinned} alt="Note unpinned icon." title="Unpinned Note"/>
+              </>
+            )}
+						
 					</button>
         </div>
 
