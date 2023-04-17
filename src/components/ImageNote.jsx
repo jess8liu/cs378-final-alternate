@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import { storage } from "./config.jsx";
 import { ref as storageRef, uploadBytes, listAll, getDownloadURL, deleteObject, updateMetadata, uploadBytesResumable, getMetadata } from "firebase/storage";
 import SettingList from "./SettingList.jsx";
+import note_edit from "../images/note_edit.svg";
+import unpinned from "../images/unpinned.svg";
+import pinned from "../images/pinned.svg"
+import trash from "../images/trash.svg";
 
 
 function ImageNote(props) {
@@ -25,11 +29,11 @@ function ImageNote(props) {
 					<div className="title">
 						{title}
 					</div>
-					<button className="save_btn" onClick={edit_funct}>
-						Edit
+					<button className="save_btn" onClick={edit_funct} title="Edit Note">
+						<img src={note_edit}/>
 					</button>
-					<button className="pin_btn">
-						Pin
+					<button className="pin_btn" title="Pin Note">
+						<img src={unpinned}/>
 					</button>
 				</div>
 
@@ -49,8 +53,9 @@ function ImageNote(props) {
 
 					<button className="trash_btn"
 						onClick={() => props.deleteImage(props.src)}
+						title="Delete Note"
 					>
-						Trash
+						<img src={trash}/>
 					</button>
 				</div>
 
