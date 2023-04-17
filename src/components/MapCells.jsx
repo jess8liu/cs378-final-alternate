@@ -4,1070 +4,927 @@ function MapCells() {
       <table>
         <tr>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
-          </th>
-        </tr>
-        <tr>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
+            <button>.</button>
           </th>
         </tr>
         <tr>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
-          </th>
-        </tr>
-        <tr>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
+            <button>.</button>
           </th>
         </tr>
         <tr>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
-          </th>
-        </tr>
-        <tr>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
+            <button>.</button>
           </th>
         </tr>
         <tr>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
-          </th>
-        </tr>
-        <tr>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
+            <button>.</button>
           </th>
         </tr>
         <tr>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
-          </th>
-        </tr>
-        <tr>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
+            <button>.</button>
           </th>
         </tr>
         <tr>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
-          </th>
-        </tr>
-        <tr>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
+            <button>.</button>
           </th>
         </tr>
         <tr>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
-          </th>
-        </tr>
-        <tr>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
-          </th>
-          <th>
-            .
+            <button>.</button>
           </th>
         </tr>
         <tr>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
           <th>
-            .
+            <button>.</button>
           </th>
         </tr>
-
+        <tr>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+        </tr>
+        <tr>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+        </tr>
+        <tr>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+        </tr>
+        <tr>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+        </tr>
+        <tr>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+          <th>
+            <button>.</button>
+          </th>
+        </tr>
       </table>
     </>
   )
