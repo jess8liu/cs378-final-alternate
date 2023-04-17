@@ -17,11 +17,12 @@ import { ref as storageRef, uploadBytes, listAll, getDownloadURL, deleteObject, 
 
 
 // Icons & images
-import gear from "../images/gear.svg"
-import image from "../images/image.svg"
-import magnifying_glass from "../images/magnifying_glass.svg"
-import upload from "../images/upload.svg"
-import clear from "../images/clear.svg"
+import gear from "../images/gear.svg";
+import image from "../images/image.svg";
+import magnifying_glass from "../images/magnifying_glass.svg";
+import add_note from "../images/add_note.svg";
+import upload from "../images/upload.svg";
+import clear from "../images/clear.svg";
 import exit from "../images/exit.svg";
 
 
@@ -299,12 +300,12 @@ export default function HomePage(props) {
         {/* Subheader with buttons for notes homepage */}
         <div className="subheader">
           <div className="subheader_btns_box">
-            <button className="note_editor_btn" onClick={writeToDatabase}>
-              Add Note
+            <button className="note_editor_btn img_btn" onClick={writeToDatabase}>
+              <img className="btn_img" src={add_note} alt="Add note icon." title="Add New Note"/>
             </button>
             {/* Image Upload */}
-            <button className="note_editor_btn" onClick={uploadImage}>
-              Upload Image
+            <button className="note_editor_btn img_btn" onClick={uploadImage}>
+              <img className="btn_img" src={upload} alt="Upload image icon." title="Upload Image"/>
             </button>
             <input
               className="images_input"

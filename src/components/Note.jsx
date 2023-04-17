@@ -3,11 +3,12 @@ import SettingList from "./SettingList";
 import { set, ref, onValue, remove } from "firebase/database";
 import { auth, database } from "./config.jsx";
 
-// Images
+// Icons & imaages
 import note_edit from "../images/note_edit.svg";
 import unpinned from "../images/unpinned.svg";
-import pinned from "../images/pinned.svg"
+import pinned from "../images/pinned.svg";
 import trash from "../images/trash.svg";
+import gear from "../images/gear.svg";
 
 function Note(props) {
 
@@ -75,12 +76,12 @@ function Note(props) {
         </div>
 
         <div className="body_section">
-          <button className="setting_btn" onClick={toggleSetting}>
-            Settings
+          <button className="setting_btn small_img_btn" onClick={toggleSetting}>
+            <img className="btn_img" src={gear} alt="Settings icon." title="Settings"/>
           </button>
 
-          <button className="trash_btn" onClick={() => handleDelete(props.note_info.cur_uid)}>
-            Trash
+          <button className="trash_btn small_img_btn" onClick={() => handleDelete(props.note_info.cur_uid)}>
+            <img className="btn_img" src={trash} alt="Trash icon." title="Delete Note"/>
           </button>
         </div>
 
