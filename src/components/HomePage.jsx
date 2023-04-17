@@ -10,9 +10,11 @@ import MapNote from "./MapNote";
 import MapEditPage from "./MapEditPage";
 import ImageNote from "./ImageNote";
 import ImageEditPage from "./ImageEditPage"
+
 // imports for the image upload
 import { storage } from "./config.jsx";
 import { ref as storageRef, uploadBytes, listAll, getDownloadURL, deleteObject, updateMetadata, uploadBytesResumable, getMetadata } from "firebase/storage";
+import exit from "../images/exit.svg";
 
 
 export default function HomePage(props) {
@@ -400,8 +402,8 @@ export default function HomePage(props) {
             ) : (
               <>
                 {/* Put the editing page here if edit is in order */}
-                <button onClick={handleExitEdit}>
-                  Exit
+                <button className="img_btn" onClick={handleExitEdit}>
+                  <img className="btn_img" src={exit}/> 
                 </button>
 
                 {

@@ -48,6 +48,7 @@ function ImageNote(props) {
 
 				<div className="body_section">
 					<button className="setting_btn"
+						title="Settings"
 					// onClick={toggleSetting}
 					>
 						Settings
@@ -57,7 +58,7 @@ function ImageNote(props) {
 						onClick={() => props.deleteImage(props.src)}
 						title="Delete Note"
 					>
-						<img src={trash}/>
+						<img className="btn_img" src={trash}/>
 					</button>
 				</div>
 

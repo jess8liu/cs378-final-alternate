@@ -173,8 +173,8 @@ input {
 }
 
 .img_btn {
-  width: 10px;
-  height: 10px;
+  width: 50px;
+  height: 50px;
 }
 
 .btn_img {
@@ -272,7 +272,7 @@ input {
 
 .edit_page_btns {
   display: block;
-  margin: 5% 0 5% 5%;
+  margin: 10px 0 10px 10px;
   padding: 5px;
   float: right;
 }
@@ -346,9 +346,16 @@ tr {
   width: 15%;
 }
 
+/* .body_bottom {
+  display: block;
+  padding-bottom: 10px;
+} */
+
 .body_section {
   background-color: #eeeaea;
 }
+
+
 
 .body_image {
   /* padding: 15px; */
