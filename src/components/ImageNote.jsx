@@ -29,11 +29,13 @@ function ImageNote(props) {
 					<div className="title">
 						{title}
 					</div>
-					<button className="save_btn" onClick={edit_funct} title="Edit Note">
-						<img src={note_edit}/>
+					<button className="save_btn img_btn"
+						onClick={edit_funct} title="Edit Note">
+						<img className="btn_img" src={note_edit}/>
 					</button>
-					<button className="pin_btn" title="Pin Note">
-						<img src={unpinned}/>
+					<button className="pin_btn img_btn"
+						title="Pin Note">
+						<img className="btn_img" src={unpinned}/>
 					</button>
 				</div>
 
@@ -51,7 +53,7 @@ function ImageNote(props) {
 						Settings
 					</button>
 
-					<button className="trash_btn"
+					<button className="trash_btn img_btn"
 						onClick={() => props.deleteImage(props.src)}
 						title="Delete Note"
 					>

@@ -86,8 +86,10 @@ const EditPage = ({ note_info }) => {
         <button onClick={() => { updateNote(); }}> Save Changes </button>
       </div>
       <div>
-        <button className="trash_btn" onClick={handleDelete} title="Delete">
-          <img src={trash}/>
+        <button className="trash_btn img_btn"
+          onClick={handleDelete}
+          title="Delete">
+          <img className="btn_img" src={trash}/>
         </button>
       </div>
     </div>

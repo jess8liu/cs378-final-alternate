@@ -172,6 +172,15 @@ input {
   background-color: #588157;
 }
 
+.img_btn {
+  width: 10px;
+  height: 10px;
+}
+
+.btn_img {
+  width: 100%;
+}
+
 .subheader_btns_box {
   display: flex;
   padding: .5%;
