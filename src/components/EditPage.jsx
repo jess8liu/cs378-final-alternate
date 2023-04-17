@@ -92,18 +92,18 @@ const EditPage = ({ note_info }) => {
 
         </div>
       </div>
+      
       <div>
         <textarea className='note_input' placeholder="Put text here..." rows='15' value={note} onChange={(e) => { setNote(e.target.value) }}>
         </textarea>
         <button className="submit_btn" onClick={() => { updateNote(); }}> Save Changes </button>
-      </div>
-      <div>
-        <button className="trash_btn img_btn"
+        <button className="trash_edit_btn img_btn"
           onClick={handleDelete}
           title="Delete">
           <img className="btn_img" src={trash}/>
         </button>
       </div>
+      
     </div>
   )
 }

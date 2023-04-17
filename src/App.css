@@ -306,9 +306,10 @@ input {
   background-color: #3a5a40;
   color: white;
   padding: 1%;
-  margin: 1% 1% 1% 0;
+  margin: 1% 0 1% 1%;
   border-radius: 5px;
   border: #283b32 1px solid;
+  float: right;
 }
 
 .unselected {
@@ -399,6 +400,11 @@ tr {
 
 .trash_btn {
   float: right;
+}
+
+.edit_trash_btn {
+  margin: 2%;
+  float: left;
 }
 
 
