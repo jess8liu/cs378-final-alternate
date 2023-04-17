@@ -419,4 +419,5 @@ tr {
   flex-grow: 1;
   border: 0.5px solid grey;
   height: 25px;
+  cursor: pointer;
 }
