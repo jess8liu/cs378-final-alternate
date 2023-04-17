@@ -255,8 +255,6 @@ input {
 }
 
 .title_input {
-  /* border: none; */
-  /* background-color: #dad7cd; */
   font-size: larger;
   width: 85%;
   margin: 10px 0 10px 0;
@@ -286,6 +284,15 @@ input {
 .btn {
   border-radius: 5px;
   border: 1px solid #7c7c7c;
+}
+
+.submit_btn {
+  background-color: #3a5a40;
+  color: white;
+  padding: 1%;
+  margin: 1% 1% 1% 0;
+  border-radius: 5px;
+  border: #283b32 1px solid;
 }
 
 .unselected {

@@ -3,6 +3,12 @@ import SettingList from "./SettingList";
 import { set, ref, onValue, remove } from "firebase/database";
 import { auth, database } from "./config.jsx";
 
+// Images
+import note_edit from "../images/note_edit.svg";
+import unpinned from "../images/unpinned.svg";
+import pinned from "../images/pinned.svg"
+import trash from "../images/trash.svg";
+
 function Note(props) {
 
   const [pin, setPin] = useState(props.note_info.is_pinned);
@@ -44,12 +50,16 @@ function Note(props) {
           <div className="title">
             {props.note_info.title}
           </div>
-          <button className="save_btn" onClick={props.edit_funct}> {/* TODO: rename class name*/}
-            Edit
-          </button>
-          <button className="pin_btn" onClick={() => togglePin(props.note_info.is_pinned)}>
-            Pin
-          </button>
+
+          <button className="save_btn img_btn"
+						onClick={props.edit_funct} title="Edit Note">
+						<img className="btn_img" src={note_edit}/>
+					</button>
+					<button className="pin_btn img_btn"
+            onClick={() => togglePin(props.note_info.is_pinned)}
+						title="Pin Note">
+						<img className="btn_img" src={unpinned}/>
+					</button>
         </div>
 
         <div className="body_section">
