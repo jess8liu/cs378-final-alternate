@@ -35,10 +35,6 @@ function ImageNote(props) {
 						onClick={edit_funct} title="Edit Note">
 						<img className="btn_img" src={note_edit} alt="Note editing icon."/>
 					</button>
-					<button className="pin_btn img_btn"
-						title="Pin Note">
-						<img className="btn_img" src={unpinned} alt="Unpinned note."/>
-					</button>
 				</div>
 
 				<div className="body_section">

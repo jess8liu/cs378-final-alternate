@@ -14,11 +14,6 @@ function MapNote(props) {
 					<button className="save_btn" onClick={edit_funct}>
 						Edit
 					</button>
-					<button className="pin_btn"
-						// onClick={() => togglePin(props.note_info.is_pinned)}
-					>
-						Pin
-					</button>
 				</div>
 
 				<div className="body_section">

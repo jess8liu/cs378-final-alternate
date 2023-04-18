@@ -324,18 +324,6 @@ export default function HomePage(props) {
         {/* List of Notes */}
         <div className="note_list box">
           <div>
-            {/* Show the notes if person is not currently editing the notes */}
-            {/* 
-            {imageList.map((url) => (
-              <>
-                <MapNote
-                  src={url}
-                  edit_funct={handleMapUpdate}
-                  deleteImage={deleteImage}
-                ></MapNote>
-              </>
-            ))} */}
-
 
             {!isEditing && !isMapEditing && !isImageEditing ? (
               // de

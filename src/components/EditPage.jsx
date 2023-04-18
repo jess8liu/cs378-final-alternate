@@ -65,10 +65,6 @@ const EditPage = ({ note_info }) => {
             placeholder='Set Title'
             value={title}
             onChange={(e) => setTitle(e.target.value)}/>
-          <button className='edit_page_btns img_btn'
-            title="Pin">
-              <img className="btn_img" src={unpinned}/>
-          </button>
         </div>
         <div className="tag_box">
           <button className={`edit_page_btns ${character ? 'selected btn' : 'unselected btn'}`}
