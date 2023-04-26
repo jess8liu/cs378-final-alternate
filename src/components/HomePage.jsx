@@ -51,6 +51,9 @@ export default function HomePage(props) {
   const [imageList, setImageList] = useState([]);
   const [isImageEditing, setIsImageEditing] = useState(false);
 
+  const [tagSearched, setTagSearched] = useState('');
+  const [isTagSearch, setIsTagSearch] = useState(false);
+
   // ----------------------------------------------------------------------
   // FUNCTIONS
   // Shows the list of notes
@@ -137,6 +140,9 @@ export default function HomePage(props) {
 
   // filters the display to show the search results
   const handleSearch = () => {
+    setIsImageEditing(false);
+    setMapEditingState(false);
+    setEditingState(false);
     setSearchResults([]);
     setImageSearchResults([]);
     // checks the image list first
@@ -157,12 +163,14 @@ export default function HomePage(props) {
         setSearchResults((oldArray) => [...oldArray, listOfNotes[x]]);
       }
     }
+
     if (search === '') {
       setIsSearching(false);
+      setIsTagSearch(false);
     } else {
       setIsSearching(true);
+      setIsTagSearch(false);
     }
-    // setSearch('');
   };
 
   const resetSearch = () => {
@@ -172,6 +180,10 @@ export default function HomePage(props) {
 
   // filters the display to show the notes with the tag that the user clicked on
   const handleTag = (tag) => {
+    setEditingState(false);
+    setMapEditingState(false);
+    setIsImageEditing(false);
+    setIsTagSearch(true);
     setImageSearchResults([])
     setSearchResults([]);
 
@@ -192,6 +204,7 @@ export default function HomePage(props) {
           alert(error);
         })
       }
+      setTagSearched('Characters');
     } else if (tag === 'lore') {
       for (let x = 0; x < listOfNotes.length; x++) {
         if (listOfNotes[x].lore) {
@@ -208,6 +221,7 @@ export default function HomePage(props) {
           alert(error);
         })
       }
+      setTagSearched('Lore');
     } else if (tag === 'map') {
       for (let x = 0; x < listOfNotes.length; x++) {
         if (listOfNotes[x].map) {
@@ -224,6 +238,7 @@ export default function HomePage(props) {
           alert(error);
         })
       }
+      setTagSearched('Maps');
     }
     setIsSearching(true);
 
@@ -288,10 +303,10 @@ export default function HomePage(props) {
             <textarea className="searchbar" value={search} onChange={(e) => setSearch(e.target.value.toLowerCase())} rows="1" placeholder="Search...">
             </textarea>
             <button className="search_btn" onClick={handleSearch}>
-              <img className="btn_img" src={magnifying_glass} alt="Search icon." title="Search"/>
+              <img className="btn_img" src={magnifying_glass} alt="Search icon." title="Search" />
             </button>
             <button className="clear_btn" onClick={resetSearch}>
-              <img className="btn_img" src={clear} alt="Clear search icon." title="Clear"/>
+              <img className="btn_img" src={clear} alt="Clear search icon." title="Clear" />
             </button>
           </div>
         </div>
@@ -301,11 +316,11 @@ export default function HomePage(props) {
         <div className="subheader">
           <div className="subheader_btns_box">
             <button className="note_editor_btn img_btn" onClick={writeToDatabase}>
-              <img className="btn_img" src={add_note} alt="Add note icon." title="Add New Note"/>
+              <img className="btn_img" src={add_note} alt="Add note icon." title="Add New Note" />
             </button>
             {/* Image Upload */}
             <button className="note_editor_btn img_btn" onClick={uploadImage}>
-              <img className="btn_img" src={upload} alt="Upload image icon." title="Upload Image"/>
+              <img className="btn_img" src={upload} alt="Upload image icon." title="Upload Image" />
             </button>
             <input
               className="images_input"
@@ -367,9 +382,17 @@ export default function HomePage(props) {
                   (
                     <>
                       <div className="home_box">
-                        <h3>
-                          All Notes
-                        </h3>
+                        <h2>
+                          {isTagSearch ? (
+                            <>
+                              {tagSearched}
+                            </>
+                          ) : (
+                            <>
+                              Search Results for '{search}'
+                            </>
+                          )}
+                        </h2>
                       </div>
 
                       {/* displays the searched image notes */}
@@ -400,7 +423,7 @@ export default function HomePage(props) {
               <>
                 {/* Put the editing page here if edit is in order */}
                 <button className="img_btn" onClick={handleExitEdit}>
-                  <img className="btn_img" src={exit}/> 
+                  <img className="btn_img" src={exit} />
                 </button>
 
                 {
